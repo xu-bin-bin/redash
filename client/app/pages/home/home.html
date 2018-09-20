@@ -1,5 +1,5 @@
 <div class="container">
-  <empty-state title="Welcome to Redash 👋" description="Connect to any data source, easily visualize and share your data"
+  <empty-state title="{{'Welcome to Redash' | translate}} 👋" description="{{'Connect to any data source, easily visualize and share your data' | translate}}."
     show-dashboard-step="true" show-invite-step="true" onboarding-mode="true" illustration="dashboard" help-link="https://redash.io/help/user-guide/getting-started"></empty-state>
 
   <home-extra></home-extra>
@@ -8,23 +8,23 @@
     <div class="t-body tb-padding">
       <div class="row">
         <div class="col-sm-6">
-          <p class="f-500 m-b-20 c-black">Favorite Dashboards</p>
+          <p class="f-500 m-b-20 c-black">{{'Favorite Dashboards' | translate}}</p>
           <div class="list-group">
             <a ng-href="dashboard/{{dashboard.slug}}" class="list-group-item" ng-repeat="dashboard in $ctrl.favoriteDashboards" ng-if="dashboard.is_favorite">
               <favorites-control item="dashboard"></favorites-control>
               {{dashboard.name}}
-              <span class="label label-default" ng-if="dashboard.is_draft">Unpublished</span>
+              <span class="label label-default" ng-if="dashboard.is_draft">{{'Unpublished' | translate}}</span>
             </a>
           </div>
         </div>
 
         <div class="col-sm-6">
-          <p class="f-500 m-b-20 c-black">Favorite Queries</p>
+          <p class="f-500 m-b-20 c-black">{{'Favorite Queries' | translate}}</p>
           <div class="list-group">
             <a ng-href="queries/{{query.id}}" class="list-group-item" ng-repeat="query in $ctrl.favoriteQueries" ng-if="query.is_favorite">
               <favorites-control item="query"></favorites-control>
               {{query.name}}
-              <span class="label label-default" ng-if="query.is_draft">Unpublished</span>
+              <span class="label label-default" ng-if="query.is_draft">{{'Unpublished' | translate}}</span>
             </a>
           </div>
         </div>

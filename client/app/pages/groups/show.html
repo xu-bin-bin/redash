@@ -5,10 +5,10 @@
     <div class="col-lg-4">
       <ul class="tab-nav">
         <li role="presentation" class="active">
-          <a href="groups/{{group.id}}">Members</a>
+          <a href="groups/{{group.id}}">{{'Members' | translate}}</a>
         </li>
         <li role="presentation" ng-if="currentUser.isAdmin">
-          <a href="groups/{{group.id}}/data_sources">Data Sources</a>
+          <a href="groups/{{group.id}}/data_sources">{{'Data Sources' | translate}}</a>
         </li>
       </ul>
     </div>
@@ -37,14 +37,14 @@
             </td>
             <td ng-class="{'text-muted': member.is_disabled}">
               <a href="users/{{member.id}}">{{member.name}}</a>
-              <button class="pull-right btn btn-sm btn-danger" ng-click="removeMember(member)" ng-if="currentUser.isAdmin && (group.type != 'builtin' || currentUser.id != member.id)">Remove</button>
+              <button class="pull-right btn btn-sm btn-danger" ng-click="removeMember(member)" ng-if="currentUser.isAdmin && (group.type != 'builtin' || currentUser.id != member.id)">{{'Remove' | translate}}</button>
             </td>
           </tr>
         </tbody>
       </table>
 
       <div ng-hide="members.length">
-        No members.
+        {{'No members' | translate}}.
       </div>
     </div>
   </div>

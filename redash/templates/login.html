@@ -1,6 +1,6 @@
 {% extends "layouts/signed_out.html" %}
 
-{% block title %}Login to Redash{% endblock %}
+{% block title %}{{'Login to Redash' | translate}}{% endblock %}
 
 {% block content %}
 <div class="fixed-width-page">
@@ -16,20 +16,20 @@
     {% if show_google_openid %}
       <a href="{{ google_auth_url }}" class="login-button btn btn-default btn-block">
         <img src="/static/images/google_logo.svg">
-        Login with Google
+        {{'Login with Google' | translate}}
       </a>
     {% endif %}
 
     {% if show_saml_login %}
-      <a href="{{ url_for('saml_auth.sp_initiated', org_slug=org_slug, next=next) }}" class="login-button btn btn-default btn-block">SAML Login</a>
+      <a href="{{ url_for('saml_auth.sp_initiated', org_slug=org_slug, next=next) }}" class="login-button btn btn-default btn-block">{{'SAML Login' | translate}}</a>
     {% endif %}
 
     {% if show_remote_user_login %}
-      <a href="{{ url_for('remote_user_auth.login', next=next) }}" class="login-button btn btn-default btn-block">Remote User Login</a>
+      <a href="{{ url_for('remote_user_auth.login', next=next) }}" class="login-button btn btn-default btn-block">{{'Remote User Login' | translate}}</a>
     {% endif %}
 
     {% if show_ldap_login %}
-      <a href="{{ url_for('ldap_auth.login', next=next) }}" class="login-button btn btn-default btn-block">LDAP/SSO Login</a>
+      <a href="{{ url_for('ldap_auth.login', next=next) }}" class="login-button btn btn-default btn-block">{{'LDAP/SSO Login' | translate}}</a>
     {% endif %}
 
     {% if show_password_login %}
@@ -44,15 +44,15 @@
         <input type="text" class="form-control" id="inputEmail" name="email" value="{{email}}">
       </div>
       <div class="form-group">
-        <label for="inputPassword">Password</label>
+        <label for="inputPassword">{{'Password' | translate}}</label>
         <input type="password" class="form-control" id="inputPassword" name="password">
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block m-t-25">Log In</button>
+      <button type="submit" class="btn btn-primary btn-block m-t-25">{{'Log In' | translate}}</button>
     </form>
     {% if not hide_forgot_password %}
       <div class="m-t-25">
-        <a href="{{ url_for("redash.forgot_password", org_slug=org_slug) }}">I forgot my password</a>
+        <a href="{{ url_for("redash.forgot_password", org_slug=org_slug) }}">{{'I forgot my password' | translate}}</a>
       </div>
     {% endif %}
     {% endif %}

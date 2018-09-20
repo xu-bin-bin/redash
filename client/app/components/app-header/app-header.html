@@ -15,7 +15,7 @@
 
       <ul class="nav navbar-nav nav__main">
         <li class="dropdown btn-group" ng-show="$ctrl.showDashboardsMenu" uib-dropdown>
-          <a class="btn" href="dashboards">Dashboards</a>
+          <a class="btn" href="dashboards">{{'Dashboards' | translate}}</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -26,7 +26,7 @@
                   <span class="btn-favourite">
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </span>
-                  Dashboards will appear here
+                  {{'Dashboards will appear here' | translate}}
                 </em>
               </a>
             </li>
@@ -38,7 +38,7 @@
           </ul>
         </li>
         <li class="dropdown btn-group" ng-show="$ctrl.showQueriesMenu" uib-dropdown>
-          <a class="btn" href="queries">Queries</a>
+          <a class="btn" href="queries">{{'Queries' | translate}}</a>
           <a type="button" class="btn hidden-xs" uib-dropdown-toggle>
             <span class="caret caret--nav"></span>
           </a>
@@ -49,7 +49,7 @@
                   <span class="btn-favourite">
                     <i class="fa fa-star" aria-hidden="true"></i>
                   </span>
-                  Queries will appear here
+                  {{'Queries will appear here' | translate}}
                 </em>
               </a>
             </li>
@@ -61,26 +61,26 @@
           </ul>
         </li>
         <li ng-if="$ctrl.showAlertsLink">
-          <a href="alerts">Alerts</a>
+          <a href="alerts">{{'Alerts' | translate}}</a>
         </li>
       </ul>
 
       <!-- Add New Button -->
       <div class="btn-group navbar-btn navbar-left btn__new hidden-xs" uib-dropdown is-open="status.isopen">
         <button id="create-button" type="button" class="btn btn-primary btn--create" uib-dropdown-toggle ng-disabled="disabled">
-          Create <span class="caret caret--nav"></span>
+          {{'Create' | translate}}<span class="caret caret--nav"></span>
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="create-button">
-          <li role="menuitem" ng-show="$ctrl.showNewQueryMenu"><a href="queries/new">Query</a></li>
-          <li role="menuitem"><a ng-show="$ctrl.currentUser.hasPermission('create_dashboard')" ng-click="$ctrl.newDashboard()">Dashboard</a></li>
-          <li role="menuitem"><a href="alerts/new">Alert</a></li>
+          <li role="menuitem" ng-show="$ctrl.showNewQueryMenu"><a href="queries/new">{{'Query' | translate}}</a></li>
+          <li role="menuitem"><a ng-show="$ctrl.currentUser.hasPermission('create_dashboard')" ng-click="$ctrl.newDashboard()">{{'Dashboard' | translate}}</a></li>
+          <li role="menuitem"><a href="alerts/new">{{'Alert' | translate}}</a></li>
         </ul>
       </div>
 
       <!-- Profile -->
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="$ctrl.currentUser.isAdmin">
-          <a href="data_sources" title="Settings"><i class="fa fa-sliders" aria-hidden="true"></i></a>
+          <a href="data_sources" title="{{'Settings' | translate}}"><i class="fa fa-sliders" aria-hidden="true"></i></a>
         </li>
         <!--<li ng-show="$ctrl.showSettingsMenu">-->
           <!--<a href="users" title="Settings"><i class="fa fa-cog"></i></a>-->
@@ -92,34 +92,34 @@
             class="caret caret--nav"></span></a>
           <ul class="dropdown-menu dropdown-menu--profile">
             <li>
-              <a ng-href="users/me">Edit Profile</a>
+              <a ng-href="users/me">{{'Edit Profile' | translate}}</a>
             </li>
             <li class="divider" ng-if="$ctrl.currentUser.hasPermission('super_admin')">
 
             <li ng-show="$ctrl.currentUser.isAdmin">
-              <a href="data_sources" title="Data Sources">Data Sources</a>
+              <a href="data_sources" title="{{'Data Sources' | translate}}">{{'Data Sources' | translate}}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="groups" title="Settings">Groups</a>
+              <a href="groups" title="{{'Settings' | translate}}">{{'Groups' | translate}}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="users" title="Settings">Users</a>
+              <a href="users" title="{{'Settings' | translate}}">{{'Users' | translate}}</a>
             </li>
             <li>
-              <a ng-href="query_snippets">Query Snippets</a>
+              <a ng-href="query_snippets">{{'Query Snippets' | translate}}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
-              <a href="destinations" title="Settings">Alert Destinations</a>
+              <a href="destinations" title="{{'Settings' | translate}}">{{'Alert Destinations' | translate}}</a>
             </li>
 
             <li  ng-if="$ctrl.currentUser.hasPermission('super_admin')" class="divider"></li>
 
-            <li ng-if="$ctrl.currentUser.hasPermission('super_admin')"><a href="admin/status">System Status</a></li>
+            <li ng-if="$ctrl.currentUser.hasPermission('super_admin')"><a href="admin/status">{{'System Status' | translate}}</a></li>
 
             <li class="divider"></li>
 
             <li>
-              <a ng-click="$ctrl.logout()">Log out</a>
+              <a ng-click="$ctrl.logout()">{{'Log out' | translate}}</a>
             </li>
           </ul>
         </li>
@@ -128,7 +128,7 @@
       <!-- Search -->
       <form class="navbar-form navbar-right" role="search" ng-submit="$ctrl.searchQueries()">
         <div class="input-group menu-search">
-          <input type="text" ng-model="$ctrl.term" class="form-control navbar__search__input" placeholder="Search queries...">
+          <input type="text" ng-model="$ctrl.term" class="form-control navbar__search__input" placeholder="{{'Search queries' | translate}}...">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-default"><span class="zmdi zmdi-search"></span></button>
           </span>

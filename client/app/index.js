@@ -1,10 +1,14 @@
 import ngModule from '@/config';
+import zh from '@/i18n/zh';
 
-ngModule.config(($locationProvider, $compileProvider, uiSelectConfig, toastrConfig) => {
+ngModule.config(($locationProvider, $compileProvider, uiSelectConfig, toastrConfig, $translateProvider) => {
   $compileProvider.debugInfoEnabled(false);
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http|data):/);
   $locationProvider.html5Mode(true);
   uiSelectConfig.theme = 'bootstrap';
+
+  $translateProvider.translations('zh', zh);
+  $translateProvider.preferredLanguage('zh');
 
   Object.assign(toastrConfig, {
     positionClass: 'toast-bottom-right',
