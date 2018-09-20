@@ -224,3 +224,10 @@ SCHEMA_RUN_TABLE_SIZE_CALCULATIONS = parse_boolean(os.environ.get("REDASH_SCHEMA
 # Allow Parameters in Embeds
 # WARNING: With this option enabled, Redash reads query parameters from the request URL (risk of SQL injection!)
 ALLOW_PARAMETERS_IN_EMBEDS = parse_boolean(os.environ.get("REDASH_ALLOW_PARAMETERS_IN_EMBEDS", "false"))
+
+#support cas authertication
+CAS_AUTH = parse_boolean(os.environ.get("CAS_AUTH", "true"))
+CAS_SERVER = os.environ.get('CAS_SERVER', "")
+CAS_AFTER_LOGIN = os.environ.get('CAS_AFTER_LOGIN', "/")
+SECRET_KEY = os.environ.get('SECRET_KEY', "yoursecret")
+CAS_VALIDATE_ROUTE = os.environ.get('SECRET_KEY', "/serviceValidate")
