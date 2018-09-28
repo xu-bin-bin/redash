@@ -36,6 +36,7 @@ module.exports = {
       ignoreRegExpLiterals: true,
       ignoreStrings: true,
       ignoreTemplateLiterals: true,
-    }]
+    }],
+    "linebreak-style": ["off", "windows"]
   }
 };

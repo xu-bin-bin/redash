@@ -140,4 +140,9 @@ def create_app(load_admin=True):
     extensions.init_extensions(app)
     chrome_logger.init_app(app)
 
+    # support cas auth
+    if settings.CAS_AUTH:
+        from redash.authentication.cas import init_app
+        init_app(app)
+
     return app
