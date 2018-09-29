@@ -1,6 +1,6 @@
 <form name="dynamicForm">
     <div class="form-group required" ng-class='{"has-error": (dynamicForm.targetName | showError)}'>
-        <label class="control-label" for="dataSourceName">Name</label>
+        <label class="control-label" for="dataSourceName">{{'Name' | translate}}</label>
         <input type="string" class="form-control" name="targetName" ng-model="target.name" autofocus required>
         <error-messages input="dynamicForm.targetName" form="dynamicForm"></error-messages>
     </div>
@@ -23,7 +23,7 @@
         <error-messages input="inner.input" form="inner"></error-messages>
     </div>
 
-    <button class="btn btn-block btn-primary m-b-10" ng-disabled="!dynamicForm.$valid" ng-click="saveChanges()">Save</button>
+    <button class="btn btn-block btn-primary m-b-10" ng-disabled="!dynamicForm.$valid" ng-click="saveChanges()">{{'Save' | translate}}</button>
     <span ng-repeat="action in actions">
         <button class="btn"
                 ng-class="action.class"

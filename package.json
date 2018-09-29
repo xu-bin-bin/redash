@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "dev": "REDASH_BACKEND=https://dev.redashapp.com npm start",
     "build": "rm -rf ./client/dist/ && NODE_ENV=production webpack",
-    "watch": " webpack --watch --progress --colors -d",
+    "watch": "webpack --watch --progress --colors -d",
     "watch_on_win": "rd /s /q  .\\client\\dist\\ && webpack --watch --progress --colors -d",
     "analyze": "rm -rf ./client/dist/ && BUNDLE_ANALYZER=on webpack",
     "analyze:build": "rm -rf ./client/dist/ && NODE_ENV=production BUNDLE_ANALYZER=on webpack"
@@ -42,6 +42,7 @@
     "angular-ui-ace": "^0.2.3",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-vs-repeat": "^1.1.7",
+    "angular-translate": "^2.18.1",
     "antd": "^3.7.1",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^3.3.7",

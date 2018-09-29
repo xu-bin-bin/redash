@@ -1,25 +1,25 @@
 <div class="container">
-  <page-header title="Admin">
+  <page-header title="{{'Admin' | translate}}">
   </page-header>
 
   <div class="bg-white tiled">
     <ul class="tab-nav">
-      <li><a href="admin/status">System Status</a></li>
-      <li><a href="admin/queries/tasks">Queries Queue</a></li>
-      <li class="active"><a href="admin/queries/outdated">Outdated Queries</a></li>
+      <li><a href="admin/status">{{'System Status' | translate}}</a></li>
+      <li><a href="admin/queries/tasks">{{'Queries Queue' | translate}}</a></li>
+      <li class="active"><a href="admin/queries/outdated">{{'Outdated Queries' | translate}}</a></li>
     </ul>
 
     <div class="">
       <table class="table table-condensed table-hover">
         <thead>
         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Created By</th>
-          <th>Runtime</th>
-          <th>Last Executed At</th>
-          <th>Created At</th>
-          <th>Update Schedule</th>
+          <th>{{'Id' | translate}}</th>
+          <th>{{'Name' | translate}}</th>
+          <th>{{'Created By' | translate}}</th>
+          <th>{{'Runtime' | translate}}</th>
+          <th>{{'Last Executed At' | translate}}</th>
+          <th>{{'Created At' | translate}}</th>
+          <th>{{'Update Schedule' | translate}}</th>
         </tr>
         </thead>
         <tbody>
@@ -42,9 +42,9 @@
 
       <div class="p-15">
         <div class="badge">
-          Last update: <span am-time-ago="updatedAt"></span>
+          {{'Last update' | translate}}: <span am-time-ago="updatedAt"></span>
         </div>
-        (<label><input type="checkbox" ng-model="autoUpdate"> Auto Update</label>)
+        (<label><input type="checkbox" ng-model="autoUpdate"> {{'Auto Update' | translate}}</label>)
       </div>
     </div>
   </div>

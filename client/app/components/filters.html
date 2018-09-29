@@ -16,10 +16,10 @@
         <ui-select-match placeholder="Select value for {{filter.friendlyName}}...">{{$item | filterValue:filter}}</ui-select-match>
         <ui-select-choices repeat="value in filter.values | filter: $select.search" group-by="$ctrl.itemGroup">
           <span ng-if="value == '*'">
-            Select All
+            {{'Select All' | translate}}
           </span>
           <span ng-if="value == '-'">
-            Clear
+            {{'Clear' | translate}}
           </span>
           <span ng-if="value != '*' && value != '-'">
             {{value | filterValue:filter }}

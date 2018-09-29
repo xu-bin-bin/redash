@@ -3,11 +3,11 @@
     <div class="col-md-12">
       <div class="clearfix m-b-10" ng-if="$ctrl.policy.canCreateUser()">
         <a href="users/new" class="btn btn-default" ng-class="{'disabled': !$ctrl.policy.isCreateUserEnabled()}">
-          <i class="fa fa-plus"></i> New User</a>
+          <i class="fa fa-plus"></i> {{'New User' | translate}}</a>
         <users-list-extra></users-list-extra>
 
         <div class="pull-right">
-          <input type="text" class="form-control" placeholder="Search..." autofocus ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
+          <input type="text" class="form-control" placeholder="{{'Search' | translate}}..." autofocus ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
             ng-change="$ctrl.update()" />
         </div>
       </div>
@@ -15,10 +15,10 @@
       <div ng-if="$ctrl.currentUser.isAdmin">
         <ul class="tab-nav">
           <li ng-class="{'active': $ctrl.currentPage === 'all'}">
-            <a href="users">Active Users</a>
+            <a href="users">{{'Active Users' | translate}}</a>
           </li>
           <li ng-class="{'active': $ctrl.currentPage === 'disabled' }">
-            <a href="users/disabled">Disabled Users</a>
+            <a href="users/disabled">{{'Disabled Users' | translate}}</a>
           </li>
         </ul>
       </div>
@@ -35,15 +35,15 @@
         <thead>
           <tr>
             <th class="sortable-column" ng-click="$ctrl.paginator.orderBy('name')">
-              Name
+              {{'Name' | translate}}
               <sort-icon column="'name'" sort-column="$ctrl.paginator.orderByField" reverse="$ctrl.paginator.orderByReverse"></sort-icon>
             </th>
             <th class="sortable-column" ng-click="$ctrl.paginator.orderBy('groups')">
-              Groups
+              {{'Groups' | translate}}
               <sort-icon column="'groups'" sort-column="$ctrl.paginator.orderByField" reverse="$ctrl.paginator.orderByReverse"></sort-icon>
             </th>
             <th class="sortable-column" ng-click="$ctrl.paginator.orderBy('created_at')">
-              Joined
+              {{'Joined' | translate}}
               <sort-icon column="'created_at'" sort-column="$ctrl.paginator.orderByField" reverse="$ctrl.paginator.orderByReverse"></sort-icon>
             </th>
             <th width="1%"></th>
@@ -64,8 +64,8 @@
             </td>
             <td>
               <div ng-if="$ctrl.currentUser.hasPermission('admin') && (user.id != $ctrl.currentUser.id)">
-                <button type="button" class="btn btn-primary" ng-if="user.is_disabled" ng-click="$ctrl.enableUser(user)">Enable</button>
-                <button type="button" class="btn btn-default" ng-if="!user.is_disabled" ng-click="$ctrl.disableUser(user)">Disable</button>
+                <button type="button" class="btn btn-primary" ng-if="user.is_disabled" ng-click="$ctrl.enableUser(user)">{{'Enable' | translate}}</button>
+                <button type="button" class="btn btn-default" ng-if="!user.is_disabled" ng-click="$ctrl.disableUser(user)">{{'Disable' | translate}}</button>
               </div>
             </td>
           </tr>
