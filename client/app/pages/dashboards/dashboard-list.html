@@ -1,24 +1,24 @@
 <div class="container">
 
-  <page-header title="Dashboards"></page-header>
+  <page-header title="{{'Dashboards' | translate}}"></page-header>
 
   <div class="row">
     <div class="col-md-3 list-control-t">
       <div class="m-b-10">
-        <input type="text" class="form-control" placeholder="Search Dashboards..." ng-change="$ctrl.update()" ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
+        <input type="text" class="form-control" placeholder="{{'Search Dashboards' | translate}}..." ng-change="$ctrl.update()" ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
           autofocus/>
       </div>
 
       <div class="list-group m-b-10 tags-list tiled">
         <a href="dashboards" class="list-group-item" ng-class="{active: $ctrl.currentPage == 'all'}">
-          All Dashboards
+          {{'All Dashboards' | translate}}
         </a>
 
         <a href="dashboards/favorites" class="list-group-item" ng-class="{active: $ctrl.currentPage == 'favorites'}">
           <span class="btn-favourite">
             <i class="fa fa-star" aria-hidden="true"></i>
           </span>
-          Favorites
+          {{'Favorites' | translate}}
         </a>
       </div>
 
@@ -44,9 +44,9 @@
       </div>
 
       <big-message ng-if="($ctrl.currentPage == 'favorites') && ($ctrl.searchTerm === undefined || $ctrl.searchTerm.length == 0) && $ctrl.selectedTags.size === 0"
-        message="'Mark dashboards as Favorite to list them here.'" icon="'fa-star'" />
+        message="'{{'Mark dashboards as Favorite to list them here' | translate}}.'" icon="'fa-star'" />
 
-      <big-message message="'Sorry, we couldn\'t find anything.'" icon="'fa-search'" ng-if="$ctrl.searchTerm.length > 0"></big-message>
+      <big-message message="'{{'Sorry, we couldn\'t find anything' | translate}}.'" icon="'fa-search'" ng-if="$ctrl.searchTerm.length > 0"></big-message>
 
       <no-tagged-objects-found object-type="'dashboards'" tags="$ctrl.selectedTags" ng-if="$ctrl.selectedTags.size > 0" />
     </div>
@@ -58,12 +58,12 @@
             <tr>
               <th style="width: 33px"></th>
               <th class="sortable-column" ng-click="$ctrl.paginator.orderBy('name')">
-                Name
+                {{'Dashboards' | translate}}
                 <sort-icon column="'name'" sort-column="$ctrl.paginator.orderByField" reverse="$ctrl.paginator.orderByReverse"></sort-icon>
               </th>
               <th></th>
               <th class="sortable-column" ng-click="$ctrl.paginator.orderBy('created_at')">
-                Created At
+                {{'Created At' | translate}}
                 <sort-icon column="'created_at'" sort-column="$ctrl.paginator.orderByField" reverse="$ctrl.paginator.orderByReverse"></sort-icon>
               </th>
             </tr>
@@ -78,7 +78,7 @@
                   {{ dashboard.name }}
                 </a>
                 <br>
-                <span class="label label-default" ng-if="dashboard.is_draft">Unpublished</span>
+                <span class="label label-default" ng-if="dashboard.is_draft">{{'Dashboards' | translate}}</span>
                 <tags-control item="dashboard"></tags-control>
               </td>
               <td class="p-r-0">
@@ -95,20 +95,20 @@
 
     <div class="col-md-3 list-control-r-b">
       <div class="m-b-10">
-        <input type="text" class="form-control" placeholder="Search Dashboards..." ng-change="$ctrl.update()" ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
+        <input type="text" class="form-control" placeholder="{{'Search Dashboards' | translate}}..." ng-change="$ctrl.update()" ng-model="$ctrl.searchTerm" ng-model-options="{ allowInvalid: true, debounce: 200 }"
           autofocus />
       </div>
 
       <div class="list-group m-b-10 tags-list tiled">
         <a href="dashboards" class="list-group-item" ng-class="{active: $ctrl.currentPage == 'all'}">
-          All Dashboards
+          {{'All Dashboards' | translate}}
         </a>
 
         <a href="dashboards/favorites" class="list-group-item" ng-class="{active: $ctrl.currentPage == 'favorites'}">
           <span class="btn-favourite">
             <i class="fa fa-star" aria-hidden="true"></i>
           </span>
-          Favorites
+          {{'Favorites' | translate}}
         </a>
       </div>
 

@@ -1,32 +1,32 @@
 <div class="container">
-  <page-header title="Admin">
+  <page-header title="{{'Admin' | translate}}">
   </page-header>
 
   <div class="bg-white tiled">
     <ul class="tab-nav">
-      <li><a href="admin/status">System Status</a></li>
-      <li class="active"><a href="admin/queries/tasks">Queries Queue</a></li>
-      <li><a href="admin/queries/outdated">Outdated Queries</a></li>
+      <li><a href="admin/status">{{'System Status' | translate}}</a></li>
+      <li class="active"><a href="admin/queries/tasks">{{'Queries Queue' | translate}}</a></li>
+      <li><a href="admin/queries/outdated">{{'Outdated Queries' | translate}}</a></li>
     </ul>
 
     <ul class="tab-nav">
-      <rd-tab tab-id="in_progress" name="In Progress ({{tasks.in_progress.length}})" ng-click="setTab('in_progress')"></rd-tab>
-      <rd-tab tab-id="waiting" name="Waiting ({{tasks.waiting.length}})" ng-click="setTab('waiting')"></rd-tab>
-      <rd-tab tab-id="done" name="Done" ng-click="setTab('done')"></rd-tab>
+      <rd-tab tab-id="in_progress" name="{{'In Progress' | translate}} ({{tasks.in_progress.length}})" ng-click="setTab('in_progress')"></rd-tab>
+      <rd-tab tab-id="waiting" name="{{'Waiting' | translate}} ({{tasks.waiting.length}})" ng-click="setTab('waiting')"></rd-tab>
+      <rd-tab tab-id="done" name="{{'Done' | translate}}" ng-click="setTab('done')"></rd-tab>
     </ul>
 
     <table class="table table-condensed table-hover">
       <thead>
       <tr>
-        <th>Data Source ID</th>
-        <th>Username</th>
-        <th>State</th>
-        <th>Query ID</th>
-        <th>Query Hash</th>
-        <th>Runtime</th>
-        <th>Created At</th>
-        <th>Started At</th>
-        <th>Updated At</th>
+        <th>{{'Data Source ID' | translate}}</th>
+        <th>{{'Username' | translate}}</th>
+        <th>{{'State' | translate}}</th>
+        <th>{{'Query ID' | translate}}</th>
+        <th>{{'Query Hash' | translate}}</th>
+        <th>{{'Runtime' | translate}}</th>
+        <th>{{'Created At' | translate}}</th>
+        <th>{{'Started At' | translate}}</th>
+        <th>{{'Updated At' | translate}}</th>
         <th ng-if="selectedTab === 'in_progress'"></th>
       </tr>
       </thead>
@@ -50,7 +50,7 @@
     <paginator paginator="$ctrl.tasksPaginator"></paginator>
 
     <div class="p-15">
-      <label><input type="checkbox" ng-model="autoUpdate"> Auto Update</label>
+      <label><input type="checkbox" ng-model="autoUpdate"> {{'Auto Update' | translate}}</label>
     </div>
   </div>
 </div>

@@ -1,11 +1,11 @@
 <div class="modal-header">
   <button type="button" class="close" ng-disabled="$ctrl.saveInProgress" aria-hidden="true" ng-click="$ctrl.dismiss()">&times;</button>
-  <h4 class="modal-title">Add Widget</h4>
+  <h4 class="modal-title">{{'Add Widget' | translate}}</h4>
 </div>
 <div class="modal-body">
   <p class="btn-group">
-    <button type="button" class="btn btn-default" ng-class="{active: $ctrl.isVisualization}" ng-click="$ctrl.setType('visualization')">Visualization</button>
-    <button type="button" class="btn btn-default" ng-class="{active: $ctrl.isTextBox}" ng-click="$ctrl.setType('textbox')">Text Box</button>
+    <button type="button" class="btn btn-default" ng-class="{active: $ctrl.isVisualization}" ng-click="$ctrl.setType('visualization')">{{'Visualization' | translate}}</button>
+    <button type="button" class="btn btn-default" ng-class="{active: $ctrl.isTextBox}" ng-click="$ctrl.setType('textbox')">{{'Text Box' | translate}}</button>
   </p>
 
   <div ng-show="$ctrl.isTextBox">
@@ -14,14 +14,14 @@
         ng-model="$ctrl.text" ng-model-options="{ debounce: 200 }" rows="5" autofocus></textarea>
     </div>
     <div ng-show="$ctrl.text" class="m-t-15">
-      <strong>Preview:</strong>
+      <strong>{{'Preview:' | translate}}</strong>
       <p ng-bind-html="$ctrl.text | markdown" class="word-wrap-break"></p>
     </div>
   </div>
 
   <div ng-show="$ctrl.isVisualization">
     <div class="form-group">
-      <input type="text" placeholder="Search a query by name" class="form-control" autofocus
+      <input type="text" placeholder="{{'Search a query by name' | translate}}" class="form-control" autofocus
         ng-if="!$ctrl.selectedQuery" ng-model="$ctrl.searchTerm" ng-change="$ctrl.searchQueries($ctrl.searchTerm)">
       <div ng-if="$ctrl.selectedQuery" class="p-relative">
         <input type="text" class="form-control bg-white"
@@ -43,7 +43,7 @@
 
       <div ng-if="$ctrl.searchTerm != ''">
         <div ng-if="$ctrl.searchedQueries.length == 0" class="text-muted">
-          No results matching search term.
+          {{'No results matching search term.' | translate}}
         </div>
         <div class="list-group" ng-if="$ctrl.searchedQueries.length > 0">
           <a class="list-group-item"
@@ -56,7 +56,7 @@
 
     <div ng-show="$ctrl.selectedQuery">
       <div class="form-group">
-        <label>Choose Visualization</label>
+        <label>{{'Choose Visualization' | translate}}</label>
         <select ng-model="$ctrl.selectedVis" class="form-control"
           ng-options="vis as vis.name group by vis.type for vis in $ctrl.selectedQuery.visualizations"></select>
       </div>
@@ -65,6 +65,6 @@
 </div>
 
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" ng-disabled="$ctrl.saveInProgress" ng-click="$ctrl.dismiss()">Close</button>
-  <button type="button" class="btn btn-primary" ng-disabled="$ctrl.saveInProgress || !($ctrl.selectedVis || $ctrl.isTextBox)" ng-click="$ctrl.saveWidget()">Add to Dashboard</button>
+  <button type="button" class="btn btn-default" ng-disabled="$ctrl.saveInProgress" ng-click="$ctrl.dismiss()">{{'Close' | translate}}</button>
+  <button type="button" class="btn btn-primary" ng-disabled="$ctrl.saveInProgress || !($ctrl.selectedVis || $ctrl.isTextBox)" ng-click="$ctrl.saveWidget()">{{'Add to Dashboard' | translate}}</button>
 </div>
