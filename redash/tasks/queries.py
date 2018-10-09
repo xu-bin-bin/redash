@@ -9,6 +9,7 @@ import redis
 from celery.exceptions import SoftTimeLimitExceeded, TimeLimitExceeded
 from celery.result import AsyncResult
 from celery.utils.log import get_task_logger
+from six import text_type
 from redash import models, redis_connection, settings, statsd_client, utils
 from redash.query_runner import InterruptException
 from redash.utils import gen_query_hash
@@ -427,11 +428,17 @@ class QueryExecutor(object):
         self.query_hash = gen_query_hash(self.query)
         self.scheduled_query = scheduled_query
         # Load existing tracker or create a new one if the job was created before code update:
-        self.tracker = QueryTaskTracker.get_by_task_id(task.request.id) or QueryTaskTracker.create(task.request.id,
-                                                                                                   'created',
-                                                                                                   self.query_hash,
-                                                                                                   self.data_source_id,
-                                                                                                   False, metadata)
+        self.tracker = (
+            QueryTaskTracker.get_by_task_id(task.request.id) or
+            QueryTaskTracker.create(
+                task.request.id,
+                'created',
+                self.query_hash,
+                self.data_source_id,
+                False,
+                metadata
+            )
+        )
         if self.tracker.scheduled:
             models.scheduled_queries_executions.update(self.tracker.query_id)
 
@@ -448,7 +455,7 @@ class QueryExecutor(object):
         try:
             data, error = query_runner.run_query(annotated_query, self.user)
         except Exception as e:
-            error = unicode(e)
+            error = text_type(e)
             data = None
             logging.warning('Unexpected error while running query:', exc_info=1)
 

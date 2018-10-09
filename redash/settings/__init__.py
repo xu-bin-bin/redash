@@ -14,7 +14,7 @@ def all_settings():
 
     return settings
 
-REDIS_URL = os.environ.get('REDASH_REDIS_URL', os.environ.get('REDIS_URL', "redis://localhost:6379/0"))
+REDIS_URL = os.environ.get('REDASH_REDIS_URL', os.environ.get('REDIS_URL', "redis://192.168.200.162:6379/0"))
 PROXIES_COUNT = int(os.environ.get('REDASH_PROXIES_COUNT', "1"))
 
 STATSD_HOST = os.environ.get('REDASH_STATSD_HOST', "127.0.0.1")
@@ -32,8 +32,12 @@ SQLALCHEMY_ECHO = False
 
 # Celery related settings
 CELERY_BROKER = os.environ.get("REDASH_CELERY_BROKER", REDIS_URL)
-CELERY_BACKEND = os.environ.get("REDASH_CELERY_BACKEND", CELERY_BROKER)
-CELERY_TASK_RESULT_EXPIRES = int(os.environ.get('REDASH_CELERY_TASK_RESULT_EXPIRES', 3600 * 4))
+CELERY_RESULT_BACKEND = os.environ.get(
+    "REDASH_CELERY_RESULT_BACKEND",
+    os.environ.get("REDASH_CELERY_BACKEND", CELERY_BROKER))
+CELERY_RESULT_EXPIRES = int(os.environ.get(
+    "REDASH_CELERY_RESULT_EXPIRES",
+    os.environ.get("REDASH_CELERY_TASK_RESULT_EXPIRES", 3600 * 4)))
 
 # The following enables periodic job (every 5 minutes) of removing unused query results.
 QUERY_RESULTS_CLEANUP_ENABLED = parse_boolean(os.environ.get("REDASH_QUERY_RESULTS_CLEANUP_ENABLED", "true"))
@@ -107,8 +111,16 @@ LOG_LEVEL = os.environ.get("REDASH_LOG_LEVEL", "INFO")
 LOG_STDOUT = parse_boolean(os.environ.get('REDASH_LOG_STDOUT', 'false'))
 LOG_PREFIX = os.environ.get('REDASH_LOG_PREFIX', '')
 LOG_FORMAT = os.environ.get('REDASH_LOG_FORMAT', LOG_PREFIX + '[%(asctime)s][PID:%(process)d][%(levelname)s][%(name)s] %(message)s')
-CELERYD_LOG_FORMAT = os.environ.get('REDASH_CELERYD_LOG_FORMAT', LOG_PREFIX + '[%(asctime)s][PID:%(process)d][%(levelname)s][%(processName)s] %(message)s')
-CELERYD_TASK_LOG_FORMAT = os.environ.get('REDASH_CELERYD_TASK_LOG_FORMAT', LOG_PREFIX + '[%(asctime)s][PID:%(process)d][%(levelname)s][%(processName)s] task_name=%(task_name)s task_id=%(task_id)s %(message)s')
+CELERYD_WORKER_LOG_FORMAT = os.environ.get(
+    "REDASH_CELERYD_WORKER_LOG_FORMAT",
+    os.environ.get('REDASH_CELERYD_LOG_FORMAT',
+                   LOG_PREFIX + '[%(asctime)s][PID:%(process)d][%(levelname)s][%(processName)s] %(message)s'))
+CELERYD_WORKER_TASK_LOG_FORMAT = os.environ.get(
+    "REDASH_CELERYD_WORKER_TASK_LOG_FORMAT",
+    os.environ.get('REDASH_CELERYD_TASK_LOG_FORMAT',
+                   (LOG_PREFIX + '[%(asctime)s][PID:%(process)d][%(levelname)s][%(processName)s] '
+                    'task_name=%(task_name)s '
+                    'task_id=%(task_id)s %(message)s')))
 
 # Mail settings:
 MAIL_SERVER = os.environ.get('REDASH_MAIL_SERVER', 'localhost')
@@ -157,7 +169,7 @@ default_query_runners = [
     'redash.query_runner.impala_ds',
     'redash.query_runner.vertica',
     'redash.query_runner.clickhouse',
-    'redash.query_runner.yandex_metrika',
+    'redash.query_runner.yandex_metrica',
     'redash.query_runner.treasuredata',
     'redash.query_runner.sqlite',
     'redash.query_runner.dynamodb_sql',
