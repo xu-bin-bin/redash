@@ -56,5 +56,4 @@ disposable-email-domains
 # It is not included by default because of the GPL license conflict.
 # ldap3==2.2.4
 # support cas
-Flask-CAS==1.0.0
 xmltodict==0.9.2

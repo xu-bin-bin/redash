@@ -9,7 +9,7 @@ from redash.authentication.google_oauth import  create_and_login_user
 cas = CAS()
 def init_app(app):
     if app is not None:
-        # Configuration defaults
+        # Resolve Untrusted Certificate Issues
         ssl._create_default_https_context = ssl._create_unverified_context
         cas=CAS(app)
         app.config['CAS_SERVER'] = settings.CAS_SERVER
