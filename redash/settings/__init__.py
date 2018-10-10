@@ -14,7 +14,7 @@ def all_settings():
 
     return settings
 
-REDIS_URL = os.environ.get('REDASH_REDIS_URL', os.environ.get('REDIS_URL', "redis://192.168.200.162:6379/0"))
+REDIS_URL = os.environ.get('REDASH_REDIS_URL', os.environ.get('REDIS_URL', "redis://localhost:6379/0"))
 PROXIES_COUNT = int(os.environ.get('REDASH_PROXIES_COUNT', "1"))
 
 STATSD_HOST = os.environ.get('REDASH_STATSD_HOST', "127.0.0.1")
