@@ -14,7 +14,7 @@
             <span class="btn-favourite">
               <i class="fa fa-star" aria-hidden="true"></i>
             </span>
-            Favorite <a href="dashboards">Dashboards</a> will appear here
+            {{ 'Favorite' | translate }} <a href="dashboards">{{ 'Dashboards' | translate }}</a> {{ 'will appear here' | translate }}
           </p>
 
           <div class="list-group">
@@ -35,7 +35,7 @@
             <span class="btn-favourite">
               <i class="fa fa-star" aria-hidden="true"></i>
             </span>
-            Favorite <a href="queries">Queries</a> will appear here
+            {{ 'Favorite' | translate }} <a href="queries">{{ 'Queries' | translate }}</a> {{ 'will appear here' | translate }}
           </p>
           <div class="list-group">
             <a ng-href="queries/{{query.id}}" class="list-group-item" ng-repeat="query in $ctrl.favoriteQueries" ng-if="query.is_favorite">
