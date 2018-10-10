@@ -66,7 +66,7 @@
                   <input name="passwordRepeat" class="form-control" type="password" ng-model="password.newRepeat"
                          compare-to="password.new"/>
                   <span class="help-block error"
-                        ng-if="userPasswordForm.passwordRepeat.$error.compareTo">{{'Passwords don't match' | translate}}.</span>
+                        ng-if="userPasswordForm.passwordRepeat.$error.compareTo">{{'Passwords don\'t match' | translate}}.</span>
                 </div>
                 <div class="form-group">
                   <button class="btn btn-primary">{{'Set new password' | translate}}</button>
@@ -88,7 +88,7 @@
                 <strong>{{'The user should receive a link to reset their password by email soon' | translate}}.</strong>
               </p>
               <p ng-if="clientConfig.mailSettingsMissing">
-                {{'You don't have mail server configured, please send the following link
+                {{'You don\'t have mail server configured, please send the following link
                 to' | translate}} {{user.name}} {{'to reset their password' | translate}}:<br/>
                 <textarea class="form-control m-t-10" rows="2" readonly>{{ passwordResetLink }}</textarea>
               </p>
