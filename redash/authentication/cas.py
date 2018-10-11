@@ -19,7 +19,7 @@ def init_app(app):
 
 def cas_auth(org,remember):
     try:
-        user = models.User.get_by_email_and_org(cas.username + '@kkk.com', org)
+        user = models.User.get_by_email_and_org(cas.username + "@" + settings.MAIL_SERVER_DOMAIN, org)
         login_user(user, remember=remember)
     except NoResultFound:
-        create_and_login_user(org, cas.username, cas.username + '@kkk.com')
+        create_and_login_user(org, cas.username, cas.username + "@" + settings.MAIL_SERVER_DOMAIN)
