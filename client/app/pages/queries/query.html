@@ -19,7 +19,7 @@
     <alert-unsaved-changes ng-if="canEdit" is-dirty="isDirty"></alert-unsaved-changes>
 
     <div class="row p-l-15 p-b-10 m-l-0 m-r-0 page-header--new page-header--query">
-      <div class="page-title col-sm-8 col-xs-7 p-0">
+      <div class="page-title col-sm-8 col-xs-7 p-0 gds_sql_title">
         <favorites-control ng-if="!query.isNew()" item="query"></favorites-control>
         <h3>
           <edit-in-place editable="canEdit" on-done="saveName" ignore-blanks="true" value="query.name" editor="'input'"></edit-in-place>

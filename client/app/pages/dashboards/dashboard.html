@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row p-l-15 p-r-15 m-b-10 m-l-0 m-r-0 dashboard-header page-header--new">
-    <div class="page-title col-xs-8 col-sm-7 col-lg-7 p-l-0">
+    <div class="page-title col-xs-8 col-sm-7 col-lg-7 p-l-0 gds_p-t-10">
       <favorites-control item="$ctrl.dashboard"></favorites-control>
       <h3>
         <edit-in-place class="edit-in-place" editable="$ctrl.layoutEditing" on-done="$ctrl.saveName" ignore-blanks="true" value="$ctrl.dashboard.name" editor="'input'"></edit-in-place>
@@ -12,7 +12,7 @@
     </div>
     <div class="col-xs-4 col-sm-5 col-lg-5 text-right dashboard__control p-r-0">
       <span ng-if="!$ctrl.dashboard.is_archived && !public" class="hidden-print">
-          <div class="btn-group">
+          <div class="btn-group gds_btn-group-border">
             <button type="button" class="btn btn-primary btn-sm"
               ng-disabled="$ctrl.isGridDisabled"
               ng-click="$ctrl.editLayout(false, true)" ng-if="$ctrl.layoutEditing">
@@ -30,7 +30,7 @@
             <span class="fa fa-paper-plane"></span> {{'Publish' | translate}}
           </button>
 
-          <div class="btn-group" uib-dropdown ng-if="!$ctrl.layoutEditing">
+          <div class="btn-group gds_btn-group-border" uib-dropdown ng-if="!$ctrl.layoutEditing">
             <button id="split-button" type="button"
                     ng-class="{'btn-default btn-sm': $ctrl.refreshRate === null,'btn-primary btn-sm':$ctrl.refreshRate !== null}"
                     class="btn btn-sm" ng-click="$ctrl.refreshDashboard()">
@@ -50,14 +50,21 @@
               </li>
             </ul>
           </div>
+
+          <div class="btn-group gds_btn-group-border" uib-dropdown ng-if="!$ctrl.layoutEditing">
           <button type="button" class="btn btn-sm hidden-xs" ng-class="{'btn-default': !$ctrl.isFullscreen, 'btn-primary': $ctrl.isFullscreen}" tooltip="Enable/Disable Fullscreen display" ng-click="$ctrl.toggleFullscreen()" ng-if="!$ctrl.dashboard.is_draft && !$ctrl.layoutEditing">
             <span class="zmdi zmdi-fullscreen"></span>
           </button>
+          </div>
+
+
+          <div class="btn-group" uib-dropdown ng-if="!$ctrl.layoutEditing">
           <button type="button" class="btn btn-sm hidden-xs" ng-class="{'btn-default': !$ctrl.dashboard.publicAccessEnabled, 'btn-primary': $ctrl.dashboard.publicAccessEnabled}" tooltip="Enable/Disable Share URL" ng-click="$ctrl.openShareForm()" ng-if="($ctrl.dashboard.canEdit() || $ctrl.dashboard.publicAccessEnabled) && !$ctrl.dashboard.is_draft && !$ctrl.layoutEditing">
             <span class="zmdi zmdi-share"></span>
           </button>
+          </div>
       </span>
-      <div class="btn-group hidden-print hidden-xs" role="group" ng-show="$ctrl.dashboard.canEdit()" uib-dropdown ng-if="!$ctrl.dashboard.is_archived && !$ctrl.layoutEditing">
+      <div class="btn-group hidden-print hidden-xs gds_btn-group-border" role="group" ng-show="$ctrl.dashboard.canEdit()" uib-dropdown ng-if="!$ctrl.dashboard.is_archived && !$ctrl.layoutEditing">
         <button class="btn btn-default btn-sm dropdown-toggle" uib-dropdown-toggle>
           <span class="zmdi zmdi-more"></span>
         </button>
