@@ -1,4 +1,4 @@
-import settingsMenu from '@/lib/settings-menu';
+// import settingsMenu from '@/lib/settings-menu';
 import template from './organization.html';
 
 function OrganizationSettingsCtrl($http, toastr, clientConfig, Events) {
@@ -31,12 +31,14 @@ function OrganizationSettingsCtrl($http, toastr, clientConfig, Events) {
 }
 
 export default function init(ngModule) {
-  settingsMenu.add({
+  /**
+   settingsMenu.add({
     permission: 'admin',
     title: 'Settings',
     path: 'settings/organization',
     order: 6,
   });
+   */
 
   ngModule.component('organizationSettingsPage', {
     template,

@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- REDASH LOGO -->
-      <a class="navbar-brand" ng-href="{{$ctrl.basePath}}"><img ng-src="{{$ctrl.logoUrl}}"/></a>
+      <!--<a class="navbar-brand" ng-href="{{$ctrl.basePath}}"><img ng-src="{{$ctrl.logoUrl}}"/></a>-->
       <img src="/static/images/gdsImages/kshzx_logo.png">
     </div>
     <div class="collapse navbar-collapse" uib-collapse="!isNavOpen">
@@ -61,9 +61,11 @@
             </li>
           </ul>
         </li>
+        <!--
         <li ng-if="$ctrl.showAlertsLink">
           <a href="alerts">{{'Alerts' | translate}}</a>
         </li>
+        -->
       </ul>
 
       <!-- Add New Button -->
@@ -74,7 +76,7 @@
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="create-button">
           <li role="menuitem" ng-show="$ctrl.showNewQueryMenu"><a href="queries/new">{{'Query' | translate}}</a></li>
           <li role="menuitem"><a ng-show="$ctrl.currentUser.hasPermission('create_dashboard')" ng-click="$ctrl.newDashboard()">{{'Dashboard' | translate}}</a></li>
-          <li role="menuitem"><a href="alerts/new">{{'Alert' | translate}}</a></li>
+          <!--<li role="menuitem"><a href="alerts/new">{{'Alert' | translate}}</a></li>-->
         </ul>
       </div>
 
@@ -92,11 +94,12 @@
             <span class="dropdown--profile__username" ng-bind="$ctrl.currentUser.name"></span> <span
             class="caret caret--nav"></span></a>
           <ul class="dropdown-menu dropdown-menu--profile">
+            <!--
             <li>
               <a ng-href="users/me">{{'Edit Profile' | translate}}</a>
             </li>
-            <li class="divider" ng-if="$ctrl.currentUser.hasPermission('super_admin')">
-
+            <li class="divider" ng-if="$ctrl.currentUser.hasPermission('super_admin')"></li>
+            -->
             <li ng-show="$ctrl.currentUser.isAdmin">
               <a href="data_sources" title="{{'Data Sources' | translate}}">{{'Data Sources' | translate}}</a>
             </li>
@@ -106,13 +109,14 @@
             <li ng-show="$ctrl.showSettingsMenu">
               <a href="users" title="{{'Settings' | translate}}">{{'Users' | translate}}</a>
             </li>
+            <!--
             <li>
               <a ng-href="query_snippets">{{'Query Snippets' | translate}}</a>
             </li>
             <li ng-show="$ctrl.showSettingsMenu">
               <a href="destinations" title="{{'Settings' | translate}}">{{'Alert Destinations' | translate}}</a>
             </li>
-
+            -->
             <li  ng-if="$ctrl.currentUser.hasPermission('super_admin')" class="divider"></li>
 
             <li ng-if="$ctrl.currentUser.hasPermission('super_admin')"><a href="admin/status">{{'System Status' | translate}}</a></li>
