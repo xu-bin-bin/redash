@@ -922,7 +922,7 @@ class Query(ChangeTrackingMixin, TimestampMixin, BelongsToOrgMixin, db.Model):
     def create(cls, **kwargs):
         query = cls(**kwargs)
         db.session.add(Visualization(query_rel=query,
-                                     name="查询结果",
+                                     name="数据",
                                      description='',
                                      type="TABLE",
                                      options="{}"))
