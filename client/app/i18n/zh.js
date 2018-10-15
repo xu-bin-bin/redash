@@ -109,7 +109,7 @@ const zh = {
   'Format Query': '格式查询',
   'Select Data Source': '选择数据源',
   'Search schema': '搜索',
-  Table: '表格',
+  Table: '查询结果',
   // Add Parameter
   'Add Parameter': '添加参数',
   Keyword: '关键字',
