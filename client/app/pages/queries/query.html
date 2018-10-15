@@ -281,7 +281,7 @@
           <span class="query-metadata__bottom" ng-if="queryResult.getData()">
             <span class="query-metadata__property">
               <strong>{{queryResult.getData().length}}</strong>
-              <ng-pluralize count="queryResult.getData().length" when="{'0': ' rows', 'one': ' row', 'other': ' rows'}"></ng-pluralize>
+              <ng-pluralize count="queryResult.getData().length" when="{'0': ' 行', 'one': ' 行', 'other': ' 行'}"></ng-pluralize>
             </span>
             <span class="query-metadata__property">
               <strong ng-show="!queryExecuting">{{queryResult.getRuntime() | durationHumanize}}</strong>
