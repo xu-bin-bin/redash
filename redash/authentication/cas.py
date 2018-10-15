@@ -1,10 +1,10 @@
-from redash import  settings
+from redash import settings
 from flask_cas import CAS
 import ssl
 from sqlalchemy.orm.exc import NoResultFound
 from redash import models
 from flask_login import login_user
-from redash.authentication.google_oauth import  create_and_login_user
+from redash.authentication.google_oauth import create_and_login_user
 
 cas = CAS()
 def init_app(app):
