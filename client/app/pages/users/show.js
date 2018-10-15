@@ -118,7 +118,7 @@ function UserCtrl(
 
 export default function init(ngModule) {
   settingsMenu.add({
-    title: 'Account',
+    title: '账户',
     path: 'users/me',
     order: 7,
   });
@@ -130,13 +130,13 @@ export default function init(ngModule) {
       template,
       reloadOnSearch: false,
       controller: 'UserCtrl',
-      title: 'Account',
+      title: '账户',
     },
     '/users/:userId': {
       template,
       reloadOnSearch: false,
       controller: 'UserCtrl',
-      title: 'Users',
+      title: '用户',
     },
   };
 }

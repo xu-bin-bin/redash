@@ -32,7 +32,7 @@ export default function init(ngModule) {
   return {
     '/dashboards': extend(
       {
-        title: 'Dashboards',
+        title: '仪表盘',
         resolve: {
           currentPage: () => 'all',
           resource(Dashboard) {
@@ -46,7 +46,7 @@ export default function init(ngModule) {
     ),
     '/dashboards/favorites': extend(
       {
-        title: 'Favorite Dashboards',
+        title: '已收藏的仪表盘',
         resolve: {
           currentPage: () => 'favorites',
           resource(Dashboard) {

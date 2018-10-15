@@ -24,11 +24,11 @@
       </div>
 
       <div ng-if="!$ctrl.loaded" class="list-content text-center">
-        <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'Loading...'"></big-message>
+        <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'加载中...'"></big-message>
       </div>
 
       <div ng-if="$ctrl.loaded && $ctrl.showEmptyState" class="list-content text-center">
-        <big-message message="'Sorry, we couldn\'t find anything.'" icon="'fa-search'"></big-message>
+        <big-message message="'对不起，找不到任何东西。'" icon="'fa-search'"></big-message>
       </div>
 
       <table class="table table-hover table-border" ng-if="$ctrl.loaded && !$ctrl.showEmptyState">

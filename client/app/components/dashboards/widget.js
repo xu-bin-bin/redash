@@ -25,7 +25,7 @@ const EditTextBoxComponent = {
             this.close();
           })
           .catch(() => {
-            toastr.error('Widget can not be updated');
+            toastr.error('小部件更新失败');
           })
           .finally(() => {
             this.saveInProgress = false;
@@ -62,7 +62,7 @@ function DashboardWidgetCtrl($location, $uibModal, $window, Events, currentUser)
   };
 
   this.deleteWidget = () => {
-    if (!$window.confirm(`Are you sure you want to remove "${this.widget.getName()}" from the dashboard?`)) {
+    if (!$window.confirm(`您确定要在仪表盘上删除 "${this.widget.getName()}" ?`)) {
       return;
     }
 

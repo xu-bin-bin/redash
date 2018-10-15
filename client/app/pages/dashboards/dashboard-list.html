@@ -34,19 +34,19 @@
     </div>
 
     <div ng-if="!$ctrl.loaded" class="col-md-9 list-content text-center">
-      <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'Loading...'"></big-message>
+      <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'加载中...'"></big-message>
     </div>
 
     <div ng-if="$ctrl.loaded && $ctrl.showEmptyState" class="col-md-9 list-content">
       <div ng-if="($ctrl.currentPage == 'all') && ($ctrl.searchText.length == 0 || $ctrl.searchText === undefined)">
-        <empty-state icon="zmdi zmdi-view-quilt" description="See the big picture" show-dashboard-step="true" illustration="dashboard"
+        <empty-state icon="zmdi zmdi-view-quilt" description="{{ 'See the big picture' | translate }}" show-dashboard-step="true" illustration="dashboard"
           help-link="http://help.redash.io/category/22-dashboards"></empty-state>
       </div>
 
       <big-message ng-if="($ctrl.currentPage == 'favorites') && ($ctrl.searchTerm === undefined || $ctrl.searchTerm.length == 0) && $ctrl.selectedTags.size === 0"
-        message="'{{'Mark dashboards as Favorite to list them here' | translate}}.'" icon="'fa-star'" />
+        message="'标记仪表盘为收藏将在这里展示'" icon="'fa-star'" />
 
-      <big-message message="'{{'Sorry, we couldn\'t find anything' | translate}}.'" icon="'fa-search'" ng-if="$ctrl.searchTerm.length > 0"></big-message>
+      <big-message message="'对不起，找不到任何东西。'" icon="'fa-search'" ng-if="$ctrl.searchTerm.length > 0"></big-message>
 
       <no-tagged-objects-found object-type="'dashboards'" tags="$ctrl.selectedTags" ng-if="$ctrl.selectedTags.size > 0" />
     </div>
@@ -82,7 +82,7 @@
                 <tags-control item="dashboard"></tags-control>
               </td>
               <td class="p-r-0">
-                <img ng-src="{{ dashboard.user.profile_image_url }}" class="profile__image_thumb" title="Created by {{ dashboard.user.name }}"
+                <img ng-src="{{ dashboard.user.profile_image_url }}" class="profile__image_thumb" title="{{ 'created by' | translate }}{{ dashboard.user.name }}"
                 />
               </td>
               <td>{{ dashboard.created_at | dateTime }}</td>

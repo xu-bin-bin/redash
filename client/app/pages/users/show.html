@@ -51,7 +51,7 @@
             <div class="well">
               <form class="form" name="userPasswordForm" ng-submit="savePassword(userPasswordForm)" novalidate>
                 <div class="form-group required" ng-class="{ 'has-error':  (userPasswordForm.currentPassword | showError:userPasswordForm )}">
-                  <label class="control-label">{{'Current Passwor' | translate}}d</label>
+                  <label class="control-label">{{'Current Password' | translate}}</label>
                   <input name="currentPassword" class="form-control" type="password" ng-model="password.current" required/>
                   <error-messages input="userPasswordForm.currentPassword" form="userPasswordForm"></error-messages>
                 </div>

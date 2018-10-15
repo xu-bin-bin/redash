@@ -73,13 +73,13 @@ function queryRefreshSelect(clientConfig, Policy) {
                 ng-model="query.schedule"
                 ng-change="saveQuery()"
                 ng-options="c.value as c.name disable when !c.enabled for c in refreshOptions">
-                <option value="">No Refresh</option>
+                <option value="">{{ 'No Refresh' | translate}}</option>
                 </select>`,
     link($scope) {
       $scope.refreshOptions =
         clientConfig.queryRefreshIntervals.map(interval => ({
           value: String(interval),
-          name: `Every ${durationHumanize(interval)}`,
+          name: `每 ${durationHumanize(interval)}`,
           enabled: true,
         }));
 

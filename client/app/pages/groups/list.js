@@ -25,7 +25,7 @@ function GroupsCtrl($scope, $uibModal, currentUser, Group) {
 export default function init(ngModule) {
   settingsMenu.add({
     permission: 'list_users',
-    title: 'Groups',
+    title: '分组',
     path: 'groups',
     order: 3,
   });
@@ -36,7 +36,7 @@ export default function init(ngModule) {
     '/groups': {
       template,
       controller: 'GroupsCtrl',
-      title: 'Groups',
+      title: '用户组',
     },
   };
 }

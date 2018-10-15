@@ -54,7 +54,7 @@ export default function init(ngModule) {
   return {
     '/queries': extend(
       {
-        title: 'Queries',
+        title: '所有查询',
         resolve: {
           currentPage: () => 'all',
           resource(Query) {
@@ -68,7 +68,7 @@ export default function init(ngModule) {
     ),
     '/queries/my': extend(
       {
-        title: 'My Queries',
+        title: '我的查询',
         resolve: {
           currentPage: () => 'my',
           resource: (Query) => {
@@ -82,7 +82,7 @@ export default function init(ngModule) {
     ),
     '/queries/favorites': extend(
       {
-        title: 'Favorite Queries',
+        title: '已收藏的查询',
         resolve: {
           currentPage: () => 'favorites',
           resource: (Query) => {

@@ -14,8 +14,8 @@ const EditGroupDialogComponent = {
     const newGroup = this.group.id === undefined;
 
     if (newGroup) {
-      this.saveButtonText = 'Create';
-      this.title = 'Create a New Group';
+      this.saveButtonText = '增加';
+      this.title = '创建一个新的用户组';
     } else {
       this.saveButtonText = 'Save';
       this.title = 'Edit Group';

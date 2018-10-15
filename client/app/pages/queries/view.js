@@ -220,8 +220,8 @@ function QueryViewCtrl(
     const options = Object.assign(
       {},
       {
-        successMessage: 'Query saved',
-        errorMessage: 'Query could not be saved',
+        successMessage: '查询已保存',
+        errorMessage: '查询保存失败',
       },
       customOptions,
     );
@@ -291,10 +291,10 @@ function QueryViewCtrl(
       );
     }
 
-    const title = 'Archive Query';
+    const title = '删除查询';
     const message =
-      'Are you sure you want to archive this query?<br/> All alerts and dashboard widgets created with its visualizations will be deleted.';
-    const confirm = { class: 'btn-warning', title: 'Archive' };
+      '您确定要删除这个查询?<br/> 所有使用其可视化创建的警报和仪表盘部件都将被删除.';
+    const confirm = { class: 'btn-warning', title: '确定删除' };
 
     AlertDialog.open(title, message, confirm).then(archive);
   };
@@ -333,8 +333,8 @@ function QueryViewCtrl(
     $e.preventDefault();
 
     const title = undefined;
-    const message = `Are you sure you want to delete ${vis.name} ?`;
-    const confirm = { class: 'btn-danger', title: 'Delete' };
+    const message = `您确定要删除 ${vis.name} ?`;
+    const confirm = { class: 'btn-danger', title: '删除' };
 
     AlertDialog.open(title, message, confirm).then(() => {
       Visualization.delete({ id: vis.id }, () => {

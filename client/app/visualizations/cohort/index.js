@@ -227,7 +227,7 @@ export default function init(ngModule) {
 
     VisualizationProvider.registerVisualization({
       type: 'COHORT',
-      name: 'Cohort',
+      name: '存留队列图',
       renderTemplate: '<cohort-renderer options="visualization.options" query-result="queryResult"></cohort-renderer>',
       editorTemplate: editTemplate,
       defaultOptions: DEFAULT_OPTIONS,

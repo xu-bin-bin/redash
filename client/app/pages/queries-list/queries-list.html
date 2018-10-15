@@ -36,7 +36,7 @@
     </div>
 
     <div ng-if="!$ctrl.loaded" class="col-md-9 list-content text-center">
-      <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'Loading...'"></big-message>
+      <big-message icon="'fa-spinner fa-2x fa-pulse'" message="'加载中...'"></big-message>
     </div>
 
     <div ng-if="$ctrl.loaded && $ctrl.showEmptyState" class="col-md-9 list-content">
@@ -50,8 +50,8 @@
           <a href="https://redash.io/help/user-guide/querying/writing-queries">{{'query writing documentation' | translate}}</a>.
         </div>
 
-        <big-message ng-switch-when="favorites" message="'Mark queries as Favorite to list them here.'" icon="'fa-star'" />
-        <big-message ng-switch-when="search" message="'Sorry, we couldn\'t find anything.'" icon="'fa-search'"></big-message>
+        <big-message ng-switch-when="favorites" message="'标记一个查询为收藏将在这里展示'" icon="'fa-star'" />
+        <big-message ng-switch-when="search" message="'对不起，找不到任何东西。'" icon="'fa-search'"></big-message>
         <no-tagged-objects-found ng-switch-when="tags" object-type="'queries'" tags="$ctrl.selectedTags" />
       </div>
 
@@ -99,7 +99,7 @@
                 <tags-control item="query"></tags-control>
               </td>
               <td class="p-r-0">
-                <img ng-src="{{query.user.profile_image_url}}" class="profile__image_thumb" title="Created by {{query.user.name}}" />
+                <img ng-src="{{query.user.profile_image_url}}" class="profile__image_thumb" title="{{ 'created by' | translate }}{{query.user.name}}" />
               </td>
               <td>{{query.created_at | dateTime}}</td>
               <td>{{query.runtime | durationHumanize}}</td>

@@ -79,11 +79,11 @@ function ChartEditor(ColorPalette, clientConfig) {
     },
     link(scope) {
       scope.currentTab = 'general';
-      scope.colors = extend({ Automatic: null }, ColorPalette);
+      scope.colors = extend({ 自动: null }, ColorPalette);
 
       scope.stackingOptions = {
-        Disabled: null,
-        Stack: 'stack',
+        禁用: null,
+        堆叠: 'stack',
       };
 
       scope.changeTab = (tab) => {
@@ -91,13 +91,13 @@ function ChartEditor(ColorPalette, clientConfig) {
       };
 
       scope.chartTypes = {
-        line: { name: 'Line', icon: 'line-chart' },
-        column: { name: 'Bar', icon: 'bar-chart' },
-        area: { name: 'Area', icon: 'area-chart' },
-        pie: { name: 'Pie', icon: 'pie-chart' },
-        scatter: { name: 'Scatter', icon: 'circle-o' },
-        bubble: { name: 'Bubble', icon: 'circle-o' },
-        box: { name: 'Box', icon: 'square-o' },
+        line: { name: '线形图', icon: 'line-chart' },
+        column: { name: '柱状图', icon: 'bar-chart' },
+        area: { name: '面积图', icon: 'area-chart' },
+        pie: { name: '饼图', icon: 'pie-chart' },
+        scatter: { name: '散点图', icon: 'circle-o' },
+        bubble: { name: '气泡图', icon: 'circle-o' },
+        box: { name: '盒形图', icon: 'square-o' },
       };
 
       if (clientConfig.allowCustomJSVisualizations) {
@@ -105,13 +105,13 @@ function ChartEditor(ColorPalette, clientConfig) {
       }
 
       scope.xAxisScales = [
-        { label: 'Auto Detect', value: '-' },
-        { label: 'Datetime', value: 'datetime' },
-        { label: 'Linear', value: 'linear' },
-        { label: 'Logarithmic', value: 'logarithmic' },
-        { label: 'Category', value: 'category' },
+        { label: '自动检测', value: '-' },
+        { label: '时间', value: 'datetime' },
+        { label: '线性', value: 'linear' },
+        { label: '对数', value: 'logarithmic' },
+        { label: '分类', value: 'category' },
       ];
-      scope.yAxisScales = ['linear', 'logarithmic', 'datetime', 'category'];
+      scope.yAxisScales = ['线性', '对数', '时间', '分类'];
 
       scope.chartTypeChanged = () => {
         keys(scope.options.seriesOptions).forEach((key) => {
@@ -345,7 +345,7 @@ export default function init(ngModule) {
 
     VisualizationProvider.registerVisualization({
       type: 'CHART',
-      name: 'Chart',
+      name: '图表',
       renderTemplate,
       editorTemplate: editTemplate,
       defaultOptions: DEFAULT_OPTIONS,

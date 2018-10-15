@@ -6,8 +6,8 @@ function alertUnsavedChanges($window) {
       isDirty: '=',
     },
     link($scope) {
-      const unloadMessage = 'You will lose your changes if you leave';
-      const confirmMessage = `${unloadMessage}\n\nAre you sure you want to leave this page?`;
+      const unloadMessage = '如果您离开，将会失去你的更改';
+      const confirmMessage = `${unloadMessage}\n\n确定您想离开当前页面吗?`;
       // store original handler (if any)
       const _onbeforeunload = $window.onbeforeunload;
 

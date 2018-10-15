@@ -50,7 +50,7 @@ function DashboardCtrl(
       .all(_.map(widgets, widget => widget.save()))
       .then(() => {
         if (showMessages) {
-          toastr.success('Changes saved.');
+          toastr.success('更改已保存.');
         }
         // Update original widgets positions
         _.each(widgets, (widget) => {
@@ -59,7 +59,7 @@ function DashboardCtrl(
       })
       .catch(() => {
         if (showMessages) {
-          toastr.error('Error saving changes.');
+          toastr.error('保存更改失败.');
         }
       })
       .finally(() => {
@@ -233,9 +233,9 @@ function DashboardCtrl(
       this.dashboard.$delete();
     };
 
-    const title = 'Archive Dashboard';
-    const message = `Are you sure you want to archive the "${this.dashboard.name}" dashboard?`;
-    const confirm = { class: 'btn-warning', title: 'Archive' };
+    const title = '删除仪表盘';
+    const message = `您确定想要删除这个 "${this.dashboard.name}" 仪表盘?`;
+    const confirm = { class: 'btn-warning', title: '确认删除' };
 
     AlertDialog.open(title, message, confirm).then(archive);
   };
