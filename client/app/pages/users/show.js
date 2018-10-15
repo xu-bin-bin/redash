@@ -1,5 +1,5 @@
 import { each } from 'lodash';
-import settingsMenu from '@/lib/settings-menu';
+// import settingsMenu from '@/lib/settings-menu';
 import { absoluteUrl } from '@/services/utils';
 import template from './show.html';
 import './settings.less';
@@ -117,12 +117,13 @@ function UserCtrl(
 }
 
 export default function init(ngModule) {
-  settingsMenu.add({
+  /**
+   settingsMenu.add({
     title: 'Account',
     path: 'users/me',
     order: 7,
   });
-
+   */
   ngModule.controller('UserCtrl', UserCtrl);
 
   return {
