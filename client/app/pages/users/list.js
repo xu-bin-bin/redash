@@ -30,7 +30,7 @@ class UsersListCtrl extends ListCtrl {
 export default function init(ngModule) {
   settingsMenu.add({
     permission: 'list_users',
-    title: 'Users',
+    title: '用户',
     path: 'users',
     isActive: $location => $location.path().startsWith('/users') && $location.path() !== '/users/me',
     order: 2,
@@ -49,7 +49,7 @@ export default function init(ngModule) {
   return {
     '/users': extend(
       {
-        title: 'Users',
+        title: '用户',
         resolve: {
           currentPage: () => 'all',
           resource(User) {

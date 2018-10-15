@@ -8,7 +8,7 @@ export default class ListCtrl {
     this.page = parseInt($location.search().page || 1, 10);
     this.pageSize = parseInt($location.search().page_size || 20, 10);
     this.pageSizeOptions = [5, 10, 20, 50, 100];
-    this.pageSizeLabel = value => `${value} results`;
+    this.pageSizeLabel = value => `${value} 条结果`;
 
     this.orderSeparator = '-';
     this.defaultOrder = defaultOrder;

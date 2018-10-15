@@ -12,14 +12,14 @@ function OrganizationSettingsCtrl($http, toastr, clientConfig, Events) {
   this.update = (key) => {
     $http.post('api/settings/organization', { [key]: this.settings[key] }).then((response) => {
       this.settings = response.data.settings;
-      toastr.success('Settings changes saved.');
+      toastr.success('设置修改已保存.');
 
       if (this.disablePasswordLoginToggle() && this.settings.auth_password_login_enabled === false) {
         this.settings.auth_password_login_enabled = true;
         this.update('auth_password_login_enabled');
       }
     }).catch(() => {
-      toastr.error('Failed saving changes.');
+      toastr.error('设置修改失败.');
     });
   };
 
@@ -34,7 +34,7 @@ export default function init(ngModule) {
   /**
    settingsMenu.add({
     permission: 'admin',
-    title: 'Settings',
+    title: '设置',
     path: 'settings/organization',
     order: 6,
   });
@@ -48,7 +48,7 @@ export default function init(ngModule) {
   return {
     '/settings/organization': {
       template: '<organization-settings-page></organization-settings-page>',
-      title: 'Organization Settings',
+      title: '设置',
     },
   };
 }

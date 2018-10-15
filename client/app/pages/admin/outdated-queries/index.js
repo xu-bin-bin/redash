@@ -38,7 +38,7 @@ export default function init(ngModule) {
   return {
     '/admin/queries/outdated': {
       template: '<outdated-queries-page></outdated-queries-page>',
-      title: 'Outdated Queries',
+      title: '失效的查询',
     },
   };
 }

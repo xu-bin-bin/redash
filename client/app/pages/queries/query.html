@@ -23,7 +23,7 @@
           <edit-in-place editable="canEdit" on-done="saveName" ignore-blanks="true" value="query.name" editor="'input'"></edit-in-place>
         </h3>
         <span class="label label-default" ng-if="query.is_draft && !query.is_archived">{{ 'Unpublished' | translate }}</span>
-        <span class="label label-warning" ng-if="query.is_archived" uib-popover="This query is archived and can't be used in dashboards, and won't appear in search results."
+        <span class="label label-warning" ng-if="query.is_archived" uib-popover="{{ 'This query is archived and can\'t be used in dashboards, and won\'t appear in search results' | translate }}."
           popover-placement="right" popover-trigger="'mouseenter'">{{ 'Archived' | translate }}</span>
         <tags-control class="hidden-xs" item="query" can-edit="isQueryOwner" get-available-tags="loadTags" on-edit="saveTags()"></tags-control>
       </div>
@@ -87,7 +87,7 @@
       <div ng-if="!sourceMode" style="flex-grow: 1;">&nbsp;</div>
 
       <div class="query-metadata query-metadata--description">
-        <edit-in-place editable="canEdit" on-done="saveDescription" editor="'textarea'" placeholder="'Add description'" ignore-blanks='false'
+        <edit-in-place editable="canEdit" on-done="saveDescription" editor="'textarea'" placeholder="'添加描述'" ignore-blanks='false'
           value="query.description" markdown="true">
         </edit-in-place>
       </div>
@@ -288,7 +288,7 @@
               <span ng-show="queryExecuting">{{ 'Running' | translate }}&hellip;</span>
               <span class="hidden-xs">{{ 'runtime' | translate }}</span>
             </span>
-            <span class="query-metadata__property" ng-if="queryResult.query_result.data.metadata.data_scanned">Data Scanned
+            <span class="query-metadata__property" ng-if="queryResult.query_result.data.metadata.data_scanned">{{ 'Data Scanned' | tranlsate }}
               <strong>{{ queryResult.query_result.data.metadata.data_scanned | prettySize}}</strong>
             </span>
           </span>

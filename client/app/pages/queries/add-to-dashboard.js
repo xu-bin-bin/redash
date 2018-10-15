@@ -19,9 +19,9 @@ const AddToDashboardForm = {
       });
       widget.save().then(() => {
         this.close();
-        toastr.success('Widget added to dashboard.');
+        toastr.success('成功添加到仪表盘.');
       }).catch(() => {
-        toastr.error('Widget not added.');
+        toastr.error('添加到仪表盘失败.');
       }).finally(() => {
         this.saveInProgress = false;
       });

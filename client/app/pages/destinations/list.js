@@ -8,20 +8,19 @@ function DestinationsCtrl($scope, $location, toastr, currentUser, Destination) {
 export default function init(ngModule) {
   /**
   settingsMenu.add({
-      permission: 'admin',
-      title: 'Alert Destinations',
-      path: 'destinations',
-      order: 4,
-    });
+    permission: 'admin',
+    title: '提示目标',
+    path: 'destinations',
+    order: 4,
+  });
     */
-
   ngModule.controller('DestinationsCtrl', DestinationsCtrl);
 
   return {
     '/destinations': {
       template,
       controller: 'DestinationsCtrl',
-      title: 'Destinations',
+      title: '提示目标',
     },
   };
 }

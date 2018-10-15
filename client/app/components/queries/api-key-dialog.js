@@ -3,17 +3,17 @@ const ApiKeyDialog = {
     <button type="button" class="close" aria-label="Close" ng-click="$ctrl.close()"><span aria-hidden="true">&times;</span></button>
 </div>
 <div class="modal-body">
-    <h5>API Key</h5>
+    <h5>{{ 'API Key' | translate}}</h5>
     <pre>{{$ctrl.apiKey}}</pre>
 
-    <h5>Example API Calls:</h5>
+    <h5>{{ 'Example API Calls' | translate}}:</h5>
 
     <div>
-        Results in CSV format:
+        {{ 'Results in CSV format' | translate}}:
 
         <pre>{{$ctrl.csvUrl}}</pre>
 
-        Results in JSON format:
+        {{ 'Results in JSON format' | translate}}:
 
         <pre>{{$ctrl.jsonUrl}}</pre>
     </div>

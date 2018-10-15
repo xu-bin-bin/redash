@@ -11,7 +11,7 @@ function enableUser(user, toastr, $sanitize) {
   return $http
     .delete(disableResource(user))
     .then((data) => {
-      toastr.success(`User <b>${userName}</b> is now enabled.`, { allowHtml: true });
+      toastr.success(`用户 <b>${userName}</b> 已被恢复.`, { allowHtml: true });
       user.is_disabled = false;
       user.profile_image_url = data.data.profile_image_url;
       return data;
@@ -30,7 +30,7 @@ function disableUser(user, toastr, $sanitize) {
   return $http
     .post(disableResource(user))
     .then((data) => {
-      toastr.warning(`User <b>${userName}</b> is now disabled.`, { allowHtml: true });
+      toastr.warning(`用户 <b>${userName}</b> 已被禁用.`, { allowHtml: true });
       user.is_disabled = true;
       user.profile_image_url = data.data.profile_image_url;
       return data;

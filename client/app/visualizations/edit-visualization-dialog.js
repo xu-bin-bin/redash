@@ -58,7 +58,7 @@ const EditVisualizationDialog = {
       this.visualization.query_id = this.query.id;
 
       Visualization.save(this.visualization, (result) => {
-        toastr.success('Visualization saved');
+        toastr.success('数据可视化已保存');
 
         const visIds = map(this.query.visualizations, i => i.id);
         const index = visIds.indexOf(result.id);
@@ -73,13 +73,13 @@ const EditVisualizationDialog = {
         }
         this.close();
       }, () => {
-        toastr.error('Visualization could not be saved');
+        toastr.error('此可视化无法被保存');
       });
     };
 
     this.closeDialog = () => {
       if (this.visForm.$dirty) {
-        if ($window.confirm('Are you sure you want to close the editor without saving?')) {
+        if ($window.confirm('您确定不保存并关闭编辑器吗?')) {
           this.close();
         }
       } else {

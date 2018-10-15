@@ -21,9 +21,9 @@ function Footer({ clientConfig, currentUser }) {
       <a href="http://redash.io">Redash</a> {version}
       {newVersionString}
       &#8226;
-      <a href="https://redash.io/help/">Documentation</a>
+      <a href="https://redash.io/help/">文档</a>
       &#8226;
-      <a href="http://github.com/getredash/redash">Contribute</a>
+      <a href="http://github.com/getredash/redash">贡献</a>
     </div>
   );
 }

@@ -3,14 +3,14 @@ export default class PromiseRejectionError extends Error {
     let message;
     if (rejection.status !== undefined) {
       if (rejection.status === 404) {
-        message = "It seems like the page you're looking for cannot be found.";
+        message = "页面未找到。It seems like the page you're looking for cannot be found.";
       } else if (rejection.status === 403 || rejection.status === 401) {
-        message = 'It seems like you don’t have permission to see this page.';
+        message = '你没有权限访问这个页面。';
       }
     }
 
     if (message === undefined) {
-      message = 'It seems like we encountered an error. Try refreshing this page or contact your administrator.';
+      message = '查询结束后请点击保存再离开页面。';
     }
 
     super(message);

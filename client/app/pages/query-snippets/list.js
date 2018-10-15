@@ -13,7 +13,7 @@ export default function init(ngModule) {
   /**
    settingsMenu.add({
     permission: 'create_query',
-    title: 'Query Snippets',
+    title: '查询片段',
     path: 'query_snippets',
     order: 5,
   });
@@ -27,7 +27,7 @@ export default function init(ngModule) {
   return {
     '/query_snippets': {
       template: '<snippets-list-page></snippets-list-page>',
-      title: 'Query Snippets',
+      title: '查询片段',
     },
   };
 }

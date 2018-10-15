@@ -7,7 +7,7 @@ const AlertDialogComponent = {
   <p ng-bind-html="$ctrl.message"></p>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-default" ng-click="$ctrl.dismiss()">Cancel</button>
+  <button class="btn btn-default" ng-click="$ctrl.dismiss()">{{ 'Cancel' | translate}}</button>
   <button class="btn" ng-class="$ctrl.confirm.class" ng-click="$ctrl.close()" ng-if="$ctrl.confirm.show">{{$ctrl.confirm.title}}</button>
 </div>
   `,

@@ -54,7 +54,7 @@ export default function init(ngModule) {
   return {
     '/admin/queries/tasks': {
       template: '<tasks-page></tasks-page>',
-      title: 'Running Queries',
+      title: '运行查询',
     },
   };
 }

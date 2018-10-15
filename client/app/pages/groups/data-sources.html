@@ -10,7 +10,7 @@
     </div>
     <div class="col-lg-8">
       <ui-select ng-model="newDataSource.selected" on-select="addDataSource($item)">
-        <ui-select-match placeholder="Add Data Source"></ui-select-match>
+        <ui-select-match placeholder="{{ 'Add Data Source' | translate }}"></ui-select-match>
         <ui-select-choices repeat="dataSource in foundDataSources | filter:$select.search"
                            refresh="findDataSource($select.search)"
                            refresh-delay="0">

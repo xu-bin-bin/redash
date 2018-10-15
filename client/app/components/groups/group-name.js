@@ -6,10 +6,10 @@ function controller($window, $location, toastr, currentUser) {
   };
 
   this.deleteGroup = () => {
-    if ($window.confirm('Are you sure you want to delete this group?')) {
+    if ($window.confirm('你确定要删除这个组吗?')) {
       this.group.$delete(() => {
         $location.path('/groups').replace();
-        toastr.success('Group deleted successfully.');
+        toastr.success('用户组删除成功。');
       });
     }
   };
@@ -24,7 +24,7 @@ export default function init(ngModule) {
     template: `
       <h2 class="m-t-0">
         <edit-in-place class="edit-in-place" editable="$ctrl.canEdit()" on-done="$ctrl.saveName" ignore-blanks="'true'" value="$ctrl.group.name"></edit-in-place>&nbsp;
-        <button class="btn btn-xs btn-danger" ng-if="$ctrl.canEdit()" ng-click="$ctrl.deleteGroup()">Delete this group</button>
+        <button class="btn btn-xs btn-danger" ng-if="$ctrl.canEdit()" ng-click="$ctrl.deleteGroup()">{{ 'Delete this group' | translate}}</button>
       </h2>
     `,
     replace: true,

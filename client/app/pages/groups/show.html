@@ -15,7 +15,7 @@
 
     <div class="col-lg-8" ng-if="currentUser.isAdmin">
       <ui-select ng-model="newMember.selected" on-select="addMember($item)">
-        <ui-select-match placeholder="Add New Member"></ui-select-match>
+        <ui-select-match placeholder="{{ 'Add New Member' | translate }}"></ui-select-match>
         <ui-select-choices repeat="user in foundUsers | filter:$select.search" refresh="findUser($select.search)" refresh-delay="0"
           ui-disable-choice="user.alreadyMember">
           <div class="d-flex align-items-center">

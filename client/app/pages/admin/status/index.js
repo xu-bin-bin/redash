@@ -36,7 +36,7 @@ export default function init(ngModule) {
   return {
     '/admin/status': {
       template: '<status-page></status-page>',
-      title: 'System Status',
+      title: '系统状态',
     },
   };
 }

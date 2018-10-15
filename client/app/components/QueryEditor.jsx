@@ -191,15 +191,15 @@ class QueryEditor extends React.Component {
 
           <div className="editor__control">
             <div className="form-inline d-flex">
-              <Tooltip placement="top" title={<span>Add New Parameter (<i>{modKey} + P</i>)</span>}>
+              <Tooltip placement="top" title={<span>添加新的参数 (<i>{modKey} + P</i>)</span>}>
                 <button type="button" className="btn btn-default m-r-5" onClick={this.props.addNewParameter}>&#123;&#123;&nbsp;&#125;&#125;</button>
               </Tooltip>
-              <Tooltip placement="top" title="Format Query">
+              <Tooltip placement="top" title="格式化查询语句">
                 <button type="button" className="btn btn-default m-r-5" onClick={this.formatQuery}>
                   <span className="zmdi zmdi-format-indent-increase" />
                 </button>
               </Tooltip>
-              <Tooltip placement="top" title="Autocomplete">
+              <Tooltip placement="top" title="自动补全">
                 <button type="button" className={'btn btn-default' + (this.state.autocompleteQuery ? ' active' : '')} onClick={() => this.setState({ autocompleteQuery: !this.state.autocompleteQuery })} >
                   <span className="fa fa-magic" />
                 </button>
@@ -211,14 +211,14 @@ class QueryEditor extends React.Component {
                 <Tooltip placement="top" title={modKey + ' + S'}>
                   <button className="btn btn-default m-l-5" onClick={this.props.saveQuery} title="Save">
                     <span className="fa fa-floppy-o" />
-                    <span className="hidden-xs">Save</span>
+                    <span className="hidden-xs">保存</span>
                     {this.props.isDirty ? '*' : null}
                   </button>
                 </Tooltip> : null }
               <Tooltip placement="top" title={modKey + ' + Enter'}>
                 <button type="button" className="btn btn-primary m-l-5" disabled={this.props.queryExecuting || !this.props.canExecuteQuery()} onClick={this.props.executeQuery}>
                   <span className="zmdi zmdi-play" />
-                  <span className="hidden-xs">Execute</span>
+                  <span className="hidden-xs">执行</span>
                 </button>
               </Tooltip>
             </div>

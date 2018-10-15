@@ -8,27 +8,27 @@ export function durationHumanize(duration) {
     humanized = '-';
   } else if (duration < 60) {
     const seconds = Math.round(duration);
-    humanized = `${seconds} seconds`;
+    humanized = `${seconds} 秒`;
   } else if (duration > 3600 * 24) {
     const days = Math.round(parseFloat(duration) / 60.0 / 60.0 / 24.0);
-    humanized = `${days} days`;
+    humanized = `${days} 天`;
   } else if (duration === 3600) {
-    humanized = '1 hour';
+    humanized = '1 小时';
   } else if (duration >= 3600) {
     const hours = Math.round(parseFloat(duration) / 60.0 / 60.0);
-    humanized = `${hours} hours`;
+    humanized = `${hours} 小时`;
   } else if (duration === 60) {
-    humanized = '1 minute';
+    humanized = '1 分钟';
   } else {
     const minutes = Math.round(parseFloat(duration) / 60.0);
-    humanized = `${minutes} minutes`;
+    humanized = `${minutes} 分钟`;
   }
   return humanized;
 }
 
 export function scheduleHumanize(schedule) {
   if (schedule === null) {
-    return 'Never';
+    return '从不';
   } else if (schedule.match(/\d\d:\d\d/) !== null) {
     const parts = schedule.split(':');
     const localTime = moment
@@ -38,10 +38,10 @@ export function scheduleHumanize(schedule) {
       .local()
       .format('HH:mm');
 
-    return `Every day at ${localTime}`;
+    return `每天 ${localTime}`;
   }
 
-  return `Every ${durationHumanize(parseInt(schedule, 10))}`;
+  return `每 ${durationHumanize(parseInt(schedule, 10))}`;
 }
 
 export function toHuman(text) {
