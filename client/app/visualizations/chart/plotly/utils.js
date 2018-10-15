@@ -262,7 +262,7 @@ function preparePieData(seriesList, options) {
 
     return {
       values: map(serie.data, i => i.y),
-      labels: map(serie.data, row => (hasX ? normalizeValue(row.x) : `Slice ${index}`)),
+      labels: map(serie.data, row => (hasX ? normalizeValue(row.x) : `切片 ${index}`)),
       type: 'pie',
       hole: 0.4,
       marker: {
