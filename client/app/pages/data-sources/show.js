@@ -59,8 +59,8 @@ function DataSourceCtrl(
       });
     };
 
-    const deleteTitle = 'Delete Data source';
-    const deleteMessage = `Are you sure you want to delete the "${$scope.dataSource.name}" data source?`;
+    const deleteTitle = '删除数据源';
+    const deleteMessage = `您确定要删除 "${$scope.dataSource.name}" 数据源吗?`;
 
     AlertDialog.open(deleteTitle, deleteMessage, deleteConfirm).then(doDelete, callback);
   }
@@ -68,22 +68,22 @@ function DataSourceCtrl(
   function testConnection(callback) {
     DataSource.test({ id: $scope.dataSource.id }, (httpResponse) => {
       if (httpResponse.ok) {
-        toastr.success('Success');
+        toastr.success('测试成功');
       } else {
-        toastr.error(httpResponse.message, 'Connection Test Failed:', { timeOut: 10000 });
+        toastr.error(httpResponse.message, '连接测试失败:', { timeOut: 10000 });
       }
       callback();
     }, (httpResponse) => {
       logger('Failed to test data source: ', httpResponse.status, httpResponse.statusText, httpResponse);
-      toastr.error('Unknown error occurred while performing connection test. Please try again later.', 'Connection Test Failed:', { timeOut: 10000 });
+      toastr.error('执行连接测试出现错误，请稍候再试。', '连接测试失败:', { timeOut: 10000 });
       callback();
     });
   }
 
   $scope.actions = [
-    { name: 'Delete', class: 'btn-danger', callback: deleteDataSource },
+    { name: '删除', class: 'btn-danger', callback: deleteDataSource },
     {
-      name: 'Test Connection', class: 'btn-default pull-right', callback: testConnection, disableWhenDirty: true,
+      name: '连接测试', class: 'btn-default pull-right', callback: testConnection, disableWhenDirty: true,
     },
   ];
 }

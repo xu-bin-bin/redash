@@ -59,7 +59,7 @@ function AlertCtrl($routeParams, $location, $sce, toastr, currentUser, Query, Ev
     }
     this.alert.$save(
       (alert) => {
-        toastr.success('Saved.');
+        toastr.success('已保存。');
         if (this.alertId === 'new') {
           $location.path(`/alerts/${alert.id}`).replace();
         }
