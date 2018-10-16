@@ -410,10 +410,10 @@ export function prepareLayout(element, seriesList, options, data) {
 
   const result = {
     margin: {
-      l: 10,
-      r: 10,
-      b: 10,
-      t: 10,
+      l: 50,
+      r: 50,
+      b: 50,
+      t: 50,
       pad: 4,
     },
     width: Math.floor(element.offsetWidth),
