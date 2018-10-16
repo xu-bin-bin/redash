@@ -100,7 +100,7 @@ function DynamicForm($http, toastr) {
       $scope.saveChanges = () => {
         $scope.target.$save(
           () => {
-            toastr.success('Saved.');
+            toastr.success('已保存。');
             $scope.dynamicForm.$setPristine();
           },
           (error) => {

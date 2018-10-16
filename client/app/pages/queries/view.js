@@ -71,9 +71,9 @@ function QueryViewCtrl(
       } else if (data.error.code === SCHEMA_NOT_SUPPORTED) {
         $scope.schema = undefined;
       } else if (data.error.code === SCHEMA_LOAD_ERROR) {
-        toastr.error('Schema refresh failed. Please try again later.');
+        toastr.error('数据刷新失败。 请稍候再试。');
       } else {
-        toastr.error('Schema refresh failed. Please try again later.');
+        toastr.error('数据刷新失败。 请稍候再试。');
       }
     });
   }
