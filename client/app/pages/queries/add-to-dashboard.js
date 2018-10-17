@@ -28,9 +28,9 @@ const AddToDashboardForm = {
     };
     this.selectedDashboard = null;
     this.searchDashboards = (searchTerm) => { // , limitToUsersDashboards
-      if (!searchTerm || searchTerm.length < 3) {
+      /* if (!searchTerm || searchTerm.length < 3) {
         return;
-      }
+      } */
       Dashboard.get({
         search_term: searchTerm,
       }, (results) => {
