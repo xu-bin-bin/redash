@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import cStringIO
 import csv
 import datetime
@@ -921,7 +922,7 @@ class Query(ChangeTrackingMixin, TimestampMixin, BelongsToOrgMixin, db.Model):
     def create(cls, **kwargs):
         query = cls(**kwargs)
         db.session.add(Visualization(query_rel=query,
-                                     name="Table",
+                                     name="表数据",
                                      description='',
                                      type="TABLE",
                                      options="{}"))
