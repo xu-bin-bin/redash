@@ -110,6 +110,7 @@ const zh = {
   'Select Data Source': '选择数据源',
   'Search schema': '搜索',
   Table: '表格',
+  'Getting the data from your datasources.': '从您的数据源获取数据',
   // Add Parameter
   'Add Parameter': '添加参数',
   Keyword: '关键字',
