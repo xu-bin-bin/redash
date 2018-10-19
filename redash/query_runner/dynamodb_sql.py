@@ -3,6 +3,7 @@ import sys
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -39,13 +40,16 @@ class DynamoDBSQL(BaseSQLQueryRunner):
             "properties": {
                 "region": {
                     "type": "string",
-                    "default": "us-east-1"
+                    "default": "us-east-1",
+                    'title': zh.get('Region', 'Region')
                 },
                 "access_key": {
                     "type": "string",
+                    'title': zh.get('Access_key', 'Access_key')
                 },
                 "secret_key": {
                     "type": "string",
+                    "title": zh.get('Secret_key', 'Secret_key')
                 }
             },
             "required": ["access_key", "secret_key"],

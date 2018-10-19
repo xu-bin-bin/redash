@@ -2,6 +2,7 @@ import re
 from collections import OrderedDict
 
 from redash.query_runner import *
+from redash.query_runner.i18n_dataSource import zh
 from redash.utils import json_dumps, json_loads
 
 
@@ -139,9 +140,9 @@ class JiraJQL(BaseHTTPQueryRunner):
     noop_query = '{"queryType": "count"}'
     response_error = "JIRA returned unexpected status code"
     requires_authentication = True
-    url_title = 'JIRA URL'
-    username_title = 'Username'
-    password_title = 'Password'
+    url_title = zh.get('JIRA URL', 'JIRA URL')
+    username_title = zh.get('Username', 'Username')
+    password_title = zh.get('Password', 'Password')
 
     @classmethod
     def name(cls):

@@ -9,6 +9,7 @@ except ImportError:
 from redash.query_runner import BaseSQLQueryRunner, register
 from redash.query_runner import TYPE_STRING, TYPE_DATE, TYPE_DATETIME, TYPE_INTEGER, TYPE_FLOAT, TYPE_BOOLEAN
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 TYPES_MAP = {
     0: TYPE_INTEGER,
@@ -36,24 +37,28 @@ class Mapd(BaseSQLQueryRunner):
             "properties": {
                 "host": {
                     "type": "string",
-                    "default": "localhost"
+                    "default": "localhost",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
                     "type": "number",
-                    "default": 9091
+                    "default": 9091,
+                    "title": zh.get("Port", "Port")
                 },
                 "user": {
                     "type": "string",
                     "default": "mapd",
-                    "title": "username"
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
                     "type": "string",
-                    "default": "HyperInteractive"
+                    "default": "HyperInteractive",
+                    "title": zh.get("Password", "Password")
                 },
                 "database": {
                     "type": "string",
-                    "default": "mapd"
+                    "default": "mapd",
+                    "title": zh.get("Database", "Database")
                 }
             },
             "order": ["user", "password", "host", "port", "database"],

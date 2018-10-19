@@ -3,7 +3,7 @@ from datetime import datetime
 from urlparse import parse_qs
 from redash.query_runner import BaseQueryRunner, register, TYPE_DATETIME, TYPE_STRING
 from redash.utils import json_dumps
-
+from redash.query_runner.i18n_dataSource import zh
 
 def get_instant_rows(metrics_data):
     rows = []
@@ -46,7 +46,7 @@ class Prometheus(BaseQueryRunner):
             'properties': {
                 'url': {
                     'type': 'string',
-                    'title': 'Prometheus API URL'
+                    'title': zh.get('Prometheus API URL', 'Prometheus API URL')
                 }
             },
             "required": ["url"]

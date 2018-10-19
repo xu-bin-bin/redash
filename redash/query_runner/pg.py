@@ -6,7 +6,7 @@ import psycopg2
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
-
+from redash.query_runner.i18n_dataSource import zh
 logger = logging.getLogger(__name__)
 
 types_map = {
@@ -53,26 +53,30 @@ class PostgreSQL(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "host": {
                     "type": "string",
-                    "default": "127.0.0.1"
+                    "default": "127.0.0.1",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
                     "type": "number",
-                    "default": 5432
+                    "default": 5432,
+                    "title": zh.get("Port", "Port")
                 },
                 "dbname": {
                     "type": "string",
-                    "title": "Database Name"
+                    "title": zh.get("Database Name", "Database Name")
                 },
                 "sslmode": {
                    "type": "string",
-                   "title": "SSL Mode",
+                   "title": zh.get("SSL Mode", "SSL Mode"),
                    "default": "prefer"
                 }
             },
@@ -211,24 +215,28 @@ class Redshift(PostgreSQL):
             "type": "object",
             "properties": {
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "host": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Port", "Port")
                 },
                 "dbname": {
                     "type": "string",
-                    "title": "Database Name"
+                    "title": zh.get("Database Name", "Database Name")
                 },
                 "sslmode": {
                    "type": "string",
-                   "title": "SSL Mode",
+                   "title": zh.get("SSL Mode", "SSL Mode"),
                    "default": "prefer"
                 }
             },

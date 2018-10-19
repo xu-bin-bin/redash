@@ -4,6 +4,7 @@ import base64
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -43,33 +44,37 @@ class Hive(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "host": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get('Host', 'Host'),
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    'title': zh.get('Port', 'Port'),
                 },
                 "database": {
-                    "type": "string"
+                    "type": "string",
+                    'title': zh.get('Database', 'Database')
                 },
                 "username": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", 'Username')
                 },
                 "use_http": {
                     "type": "boolean",
-                    "title": "Use HTTP transport"
+                    "title": zh.get("Use HTTP transport", 'Use HTTP transport')
                 },
                 "http_scheme": {
                     "type": "string",
-                    "title": "Scheme when using HTTP transport",
+                    "title": zh.get("Scheme when using HTTP transport", 'Scheme when using HTTP transport'),
                     "default": "https"
                 },
                 "http_path": {
                     "type": "string",
-                    "title": "Path when using HTTP transport"
+                    "title": zh.get("Path when using HTTP transport", 'Path when using HTTP transport')
                 },
                 "http_password": {
                     "type": "string",
-                    "title": "Password when using HTTP transport"
+                    "title": zh.get("Password when using HTTP transport", 'Password when using HTTP transport')
                 },
             },
             "required": ["host"]

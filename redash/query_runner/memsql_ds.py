@@ -3,6 +3,7 @@ import sys
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -45,16 +46,20 @@ class MemSQL(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "host": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Port", "Port")
                 },
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 }
 
             },

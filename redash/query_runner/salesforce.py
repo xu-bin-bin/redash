@@ -7,6 +7,7 @@ from redash.query_runner import BaseQueryRunner, register
 from redash.query_runner import TYPE_STRING, TYPE_DATE, TYPE_DATETIME, TYPE_INTEGER, TYPE_FLOAT, TYPE_BOOLEAN
 from redash.utils import json_dumps
 logger = logging.getLogger(__name__)
+from redash.query_runner.i18n_dataSource import zh
 
 try:
     from simple_salesforce import Salesforce as SimpleSalesforce
@@ -65,21 +66,24 @@ class Salesforce(BaseQueryRunner):
             "type": "object",
             "properties": {
                 "username": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "token": {
                     "type": "string",
-                    "title": "Security Token"
+                    "title": zh.get("Security Token", "Security Token")
                 },
                 "sandbox": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "title": zh.get("Sandbox", "Sandbox")
                 },
                 "api_version": {
                     "type": "string",
-                    "title": "Salesforce API Version",
+                    "title": zh.get("Salesforce API Version", "Salesforce API Version"),
                     "default": DEFAULT_API_VERSION
                 }
             },

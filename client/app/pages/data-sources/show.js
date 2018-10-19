@@ -24,14 +24,14 @@ function DataSourceCtrl(
   $scope.canChangeType = $scope.dataSource.id === undefined;
 
   $scope.helpLinks = {
-    athena: 'https://redash.io/help/data-sources/amazon-athena-setup',
+    /* athena: 'https://redash.io/help/data-sources/amazon-athena-setup',
     bigquery: 'https://redash.io/help/data-sources/bigquery-setup',
     url: 'https://redash.io/help/data-sources/querying-urls',
     mongodb: 'https://redash.io/help/data-sources/mongodb-setup',
     google_spreadsheets: 'https://redash.io/help/data-sources/querying-a-google-spreadsheet',
     google_analytics: 'https://redash.io/help/data-sources/google-analytics-setup',
     axibasetsd: 'https://redash.io/help/data-sources/axibase-time-series-database',
-    results: 'https://redash.io/help/user-guide/querying/query-results-data-source',
+    results: 'https://redash.io/help/user-guide/querying/query-results-data-source', */
   };
 
   $scope.$watch('dataSource.id', (id) => {

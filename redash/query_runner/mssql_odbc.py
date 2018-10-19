@@ -5,6 +5,7 @@ import uuid
 from redash.query_runner import *
 from redash.query_runner.mssql import types_map
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -24,31 +25,35 @@ class SQLServerODBC(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "server": {
                     "type": "string",
-                    "default": "127.0.0.1"
+                    "default": "127.0.0.1",
+                    "title": zh.get("Server", "Server")
                 },
                 "port": {
                     "type": "number",
-                    "default": 1433
+                    "default": 1433,
+                    "title": zh.get("Port", "Port")
                 },
                 "charset": {
                     "type": "string",
                     "default": "UTF-8",
-                    "title": "Character Set"
+                    "title": zh.get("Character Set", "Character Set")
                 },
                 "db": {
                     "type": "string",
-                    "title": "Database Name"
+                    "title": zh.get("Database Name", "Database Name")
                 },
                 "driver": {
                     "type": "string",
-                    "title": "Driver Identifier",
+                    "title": zh.get("Driver Identifier", "Driver Identifier"),
                     "default": "{ODBC Driver 13 for SQL Server}"
                 }
             },

@@ -4,6 +4,7 @@ import os
 from redash.query_runner import *
 from redash.settings import parse_boolean
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 types_map = {
@@ -38,22 +39,25 @@ class Mysql(BaseSQLQueryRunner):
             'properties': {
                 'host': {
                     'type': 'string',
-                    'default': '127.0.0.1'
+                    'default': '127.0.0.1',
+                    "title": zh.get("Host", "Host")
                 },
                 'user': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Username", "Username")
                 },
                 'passwd': {
                     'type': 'string',
-                    'title': 'Password'
+                    "title": zh.get("Password", "Password")
                 },
                 'db': {
                     'type': 'string',
-                    'title': 'Database name'
+                    "title": zh.get("Database Name", "Database Name")
                 },
                 'port': {
                     'type': 'number',
                     'default': 3306,
+                    "title": zh.get("Port", "Port")
                 }
             },
             "order": ['host', 'port', 'user', 'passwd', 'db'],
@@ -65,19 +69,19 @@ class Mysql(BaseSQLQueryRunner):
             schema['properties'].update({
                 'use_ssl': {
                     'type': 'boolean',
-                    'title': 'Use SSL'
+                    'title': zh.get('Use SSL', 'Use SSL')
                 },
                 'ssl_cacert': {
                     'type': 'string',
-                    'title': 'Path to CA certificate file to verify peer against (SSL)'
+                    'title': zh.get('Path to CA certificate file to verify peer against (SSL)', 'Path to CA certificate file to verify peer against (SSL)')
                 },
                 'ssl_cert': {
                     'type': 'string',
-                    'title': 'Path to client certificate file (SSL)'
+                    'title': zh.get('Path to client certificate file (SSL)', 'Path to client certificate file (SSL)')
                 },
                 'ssl_key': {
                     'type': 'string',
-                    'title': 'Path to private key file (SSL)'
+                    'title': zh.get('Path to private key file (SSL)', 'Path to private key file (SSL)')
                 }
             })
 

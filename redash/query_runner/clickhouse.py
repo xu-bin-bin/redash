@@ -5,6 +5,7 @@ import requests
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -19,18 +20,21 @@ class ClickHouse(BaseSQLQueryRunner):
             "properties": {
                 "url": {
                     "type": "string",
-                    "default": "http://127.0.0.1:8123"
+                    "default": "http://127.0.0.1:8123",
+                    'title': zh.get('URL', 'URL')
                 },
                 "user": {
                     "type": "string",
-                    "default": "default"
+                    "default": "default",
+                    'title': zh.get('User', 'User'),
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    'title': zh.get('Password', 'Password'),
                 },
                 "dbname": {
                     "type": "string",
-                    "title": "Database Name"
+                    "title": zh.get("Database Name", 'Database Name')
                 }
             },
             "required": ["dbname"],

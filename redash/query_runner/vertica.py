@@ -3,7 +3,7 @@ import logging
 
 from redash.utils import json_loads, json_dumps
 from redash.query_runner import *
-
+from redash.query_runner.i18n_dataSource import zh
 logger = logging.getLogger(__name__)
 
 types_map = {
@@ -36,25 +36,28 @@ class Vertica(BaseSQLQueryRunner):
             'type': 'object',
             'properties': {
                 'host': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Host", "Host")
                 },
                 'user': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Username", "Username")
                 },
                 'password': {
                     'type': 'string',
-                    'title': 'Password'
+                    "title": zh.get("Password", "Password")
                 },
                 'database': {
                     'type': 'string',
-                    'title': 'Database name'
+                    "title": zh.get("Database Name", 'Database Name')
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Port", "Port")
                 },
                 "read_timeout": {
                     "type": "number",
-                    "title": "Read Timeout"
+                    "title": zh.get("Read Timeout", "Read Timeout")
                 },
             },
             'required': ['database'],

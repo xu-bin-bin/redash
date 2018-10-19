@@ -6,6 +6,7 @@ from dateutil.parser import parse
 
 from redash.query_runner import *
 from redash.utils import JSONEncoder, json_dumps, json_loads, parse_human_time
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -124,15 +125,15 @@ class MongoDB(BaseQueryRunner):
             'properties': {
                 'connectionString': {
                     'type': 'string',
-                    'title': 'Connection String'
+                    'title': zh.get('Connection String', 'Connection String')
                 },
                 'dbName': {
                     'type': 'string',
-                    'title': "Database Name"
+                    'title': zh.get("Database Name", "Database Name")
                 },
                 'replicaSetName': {
                     'type': 'string',
-                    'title': 'Replica Set Name'
+                    'title': zh.get('Replica Set Name', 'Replica Set Name')
                 },
             },
             'required': ['connectionString', 'dbName']

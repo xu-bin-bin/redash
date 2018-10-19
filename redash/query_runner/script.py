@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 from redash.query_runner import *
-
+from redash.query_runner.i18n_dataSource import zh
 
 def query_to_script_path(path, query):
     if path != "*":
@@ -44,11 +44,11 @@ class Script(BaseQueryRunner):
             'properties': {
                 'path': {
                     'type': 'string',
-                    'title': 'Scripts path'
+                    'title': zh.get('Scripts path', 'Scripts path')
                 },
                 'shell': {
                     'type': 'boolean',
-                    'title': 'Execute command through the shell'
+                    'title': zh.get('Execute command through the shell', 'Execute command through the shell')
                 }
             },
             'required': ['path']

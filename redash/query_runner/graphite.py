@@ -5,6 +5,7 @@ import requests
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -32,17 +33,20 @@ class Graphite(BaseQueryRunner):
             'type': 'object',
             'properties': {
                 'url': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get('URL', 'URL')
                 },
                 'username': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Username', 'Username'),
                 },
                 'password': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Password', 'Password')
                 },
                 'verify': {
                     'type': 'boolean',
-                    'title': 'Verify SSL certificate'
+                    'title': zh.get('Verify SSL certificate', 'Verify SSL certificate')
                 }
             },
             'required': ['url'],

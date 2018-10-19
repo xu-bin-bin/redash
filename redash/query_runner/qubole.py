@@ -7,6 +7,7 @@ from cStringIO import StringIO
 from redash.query_runner import BaseQueryRunner, register
 from redash.query_runner import TYPE_STRING
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 try:
     import qds_sdk
@@ -26,21 +27,21 @@ class Qubole(BaseQueryRunner):
             "properties": {
                 "endpoint": {
                     "type": "string",
-                    "title": "API Endpoint",
+                    "title": zh.get("API Endpoint", "API Endpoint"),
                     "default": "https://api.qubole.com"
                 },
                 "token": {
                     "type": "string",
-                    "title": "Auth Token"
+                    "title": zh.get("Auth Token", "Auth Token")
                 },
                 "cluster": {
                     "type": "string",
-                    "title": "Cluster Label",
+                    "title": zh.get("Cluster Label", "Cluster Label"),
                     "default": "default"
                 },
                 "query_type": {
                     "type": "string",
-                    "title": "Query Type (hive or presto)",
+                    "title": zh.get("Query Type (hive or presto)", "Query Type (hive or presto)"),
                     "default": "hive"
                 }
             },

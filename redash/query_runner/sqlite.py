@@ -6,6 +6,7 @@ from six import reraise
 
 from redash.query_runner import BaseSQLQueryRunner, register
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +21,7 @@ class Sqlite(BaseSQLQueryRunner):
             "properties": {
                 "dbpath": {
                     "type": "string",
-                    "title": "Database Path"
+                    "title": zh.get("Database Path", "Database Path")
                 }
             },
             "required": ["dbpath"],
