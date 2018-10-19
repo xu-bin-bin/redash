@@ -7,6 +7,7 @@ from urlparse import parse_qs, urlparse
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +102,7 @@ class GoogleAnalytics(BaseSQLQueryRunner):
             'properties': {
                 'jsonKeyFile': {
                     "type": "string",
-                    'title': 'JSON Key File'
+                    'title': zh.get('JSON Key File', 'JSON Key File')
                 }
             },
             'required': ['jsonKeyFile'],

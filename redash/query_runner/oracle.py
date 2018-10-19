@@ -2,6 +2,7 @@ import logging
 
 from redash.utils import json_dumps, json_loads
 from redash.query_runner import *
+from redash.query_runner.i18n_dataSource import zh
 
 try:
     import cx_Oracle
@@ -49,20 +50,24 @@ class Oracle(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "host": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Port", "Port")
                 },
                 "servicename": {
                     "type": "string",
-                    "title": "DSN Service Name"
+                    "title": zh.get("DSN Service Name", "DSN Service Name")
                 }
             },
             "required": ["servicename", "user", "password", "host", "port"],

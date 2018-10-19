@@ -2,7 +2,7 @@ import logging
 
 from redash.query_runner import *
 from redash.utils import json_dumps
-
+from redash.query_runner.i18n_dataSource import zh
 logger = logging.getLogger(__name__)
 
 try:
@@ -42,21 +42,24 @@ class TreasureData(BaseQueryRunner):
             'type': 'object',
             'properties': {
                 'endpoint': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("API Endpoint", "API Endpoint"),
                 },
                 'apikey': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("API key", "API key")
                 },
                 'type': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Type", "Type")
                 },
                 'db': {
                     'type': 'string',
-                    'title': 'Database Name'
+                    "title": zh.get("Database", "Database")
                 },
                 'get_schema': {
                     'type': 'boolean',
-                    'title': 'Auto Schema Retrieval',
+                    'title': zh.get('Auto Schema Retrieval', 'Auto Schema Retrieval'),
                     'default': False
                 }
             },

@@ -6,6 +6,7 @@ import requests
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -82,7 +83,7 @@ class YandexMetrica(BaseSQLQueryRunner):
             "properties": {
                 "token": {
                     "type": "string",
-                    "title": "OAuth Token"
+                    "title": zh.get("Auth Token", "Auth Token")
                 }
             },
             "required": ["token"],

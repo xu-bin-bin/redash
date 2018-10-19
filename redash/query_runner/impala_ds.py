@@ -2,6 +2,7 @@ import logging
 
 from redash.query_runner import *
 from redash.utils import json_dumps
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -41,29 +42,36 @@ class Impala(BaseSQLQueryRunner):
             "type": "object",
             "properties": {
                 "host": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Host", "Host")
                 },
                 "port": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Port", "Port")
                 },
                 "protocol": {
                     "type": "string",
-                    "title": "Please specify beeswax or hiveserver2"
+                    "title": zh.get("Please specify beeswax or hiveserver2", "Please specify beeswax or hiveserver2")
                 },
                 "database": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Database", "Database")
                 },
                 "use_ldap": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "title": zh.get("Use_ldap", "Use_ldap")
                 },
                 "ldap_user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("ldap_user", "ldap_user")
                 },
                 "ldap_password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("ldap_password", "ldap_password")
                 },
                 "timeout": {
-                    "type": "number"
+                    "type": "number",
+                    "title": zh.get("Timeout", "Timeout")
                 }
             },
             "required": ["host"],

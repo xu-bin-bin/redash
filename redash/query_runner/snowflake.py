@@ -10,6 +10,7 @@ except ImportError:
 from redash.query_runner import BaseQueryRunner, register
 from redash.query_runner import TYPE_STRING, TYPE_DATE, TYPE_DATETIME, TYPE_INTEGER, TYPE_FLOAT, TYPE_BOOLEAN
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 TYPES_MAP = {
     0: TYPE_INTEGER,
@@ -32,19 +33,24 @@ class Snowflake(BaseQueryRunner):
             "type": "object",
             "properties": {
                 "account": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Account", "Account")
                 },
                 "user": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Username", "Username")
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Password", "Password")
                 },
                 "warehouse": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Warehouse", "Warehouse")
                 },
                 "database": {
-                    "type": "string"
+                    "type": "string",
+                    "title": zh.get("Database", "Database")
                 }
             },
             "required": ["user", "password", "account", "database", "warehouse"],

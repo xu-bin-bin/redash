@@ -6,6 +6,7 @@ import csv
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -91,47 +92,48 @@ class AxibaseTSD(BaseQueryRunner):
             'properties': {
                 'protocol': {
                     'type': 'string',
-                    'title': 'Protocol',
+                    'title': zh.get('Protocol', 'Protocol'),
                     'default': 'http'
                 },
                 'hostname': {
                     'type': 'string',
-                    'title': 'Host',
+                    'title': zh.get('Host', 'Host'),
                     'default': 'axibase_tsd_hostname'
                 },
                 'port': {
                     'type': 'number',
-                    'title': 'Port',
+                    'title': zh.get('Port', 'Port'),
                     'default': 8088
                 },
                 'username': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Username', 'Username')
                 },
                 'password': {
                     'type': 'string',
-                    'title': 'Password'
+                    'title': zh.get('Password', 'Password')
                 },
                 'timeout': {
                     'type': 'number',
                     'default': 600,
-                    'title': 'Connection Timeout'
+                    'title': zh.get('Connection Timeout', 'Connection Timeout')
                 },
                 'min_insert_date': {
                     'type': 'string',
-                    'title': 'Metric Minimum Insert Date'
+                    'title': zh.get('Metric Minimum Insert Date', 'Metric Minimum Insert Date')
                 },
                 'expression': {
                     'type': 'string',
-                    'title': 'Metric Filter'
+                    'title': zh.get('Metric Filter', 'Metric Filter')
                 },
                 'limit': {
                     'type': 'number',
                     'default': 5000,
-                    'title': 'Metric Limit'
+                    'title': zh.get('Metric Limit', 'Metric Limit')
                 },
                 'trust_certificate': {
                     'type': 'boolean',
-                    'title': 'Trust SSL Certificate'
+                    'title': zh.get('Trust SSL Certificate', 'Trust SSL Certificate')
                 }
             },
             'required': ['username', 'password', 'hostname', 'protocol', 'port'],

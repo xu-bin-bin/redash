@@ -1,5 +1,6 @@
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 import logging
 logger = logging.getLogger(__name__)
@@ -38,23 +39,28 @@ class Presto(BaseQueryRunner):
             'type': 'object',
             'properties': {
                 'host': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Host", "Host")
                 },
                 'protocol': {
                     'type': 'string',
                     'default': 'http'
                 },
                 'port': {
-                    'type': 'number'
+                    'type': 'number',
+                    "title": zh.get("Port", "Port")
                 },
                 'schema': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Schema', 'Schema')
                 },
                 'catalog': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Catalog', 'Catalog')
                 },
                 'username': {
-                    'type': 'string'
+                    'type': 'string',
+                    "title": zh.get("Username", "Username")
                 },
             },
             'order': ['host', 'protocol', 'port', 'username', 'schema', 'catalog'],

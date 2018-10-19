@@ -2,6 +2,7 @@ import logging
 import requests
 
 from redash import settings
+from redash.query_runner.i18n_dataSource import zh
 from redash.utils import json_loads
 
 logger = logging.getLogger(__name__)
@@ -146,9 +147,9 @@ class BaseSQLQueryRunner(BaseQueryRunner):
 class BaseHTTPQueryRunner(BaseQueryRunner):
     response_error = "Endpoint returned unexpected status code"
     requires_authentication = False
-    url_title = 'URL base path'
-    username_title = 'HTTP Basic Auth Username'
-    password_title = 'HTTP Basic Auth Password'
+    url_title = zh.get('URL base path', 'URL base path')
+    username_title = zh.get('HTTP Basic Auth Username', 'HTTP Basic Auth Username')
+    password_title = zh.get('HTTP Basic Auth Password', 'HTTP Basic Auth Password')
 
     @classmethod
     def configuration_schema(cls):

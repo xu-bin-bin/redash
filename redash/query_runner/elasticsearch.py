@@ -7,6 +7,7 @@ from requests.auth import HTTPBasicAuth
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 try:
     import http.client as http_client
@@ -53,15 +54,15 @@ class BaseElasticSearch(BaseQueryRunner):
             'properties': {
                 'server': {
                     'type': 'string',
-                    'title': 'Base URL'
+                    'title': zh.get('Base URL', 'Base URL')
                 },
                 'basic_auth_user': {
                     'type': 'string',
-                    'title': 'Basic Auth User'
+                    'title': zh.get('Basic Auth User', 'Basic Auth User')
                 },
                 'basic_auth_password': {
                     'type': 'string',
-                    'title': 'Basic Auth Password'
+                    'title': zh.get('Basic Auth Password', 'Basic Auth Password')
                 }
             },
             "secret": ["basic_auth_password"],

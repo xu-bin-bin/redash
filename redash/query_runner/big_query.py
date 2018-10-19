@@ -10,6 +10,7 @@ import requests
 from redash import settings
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -94,35 +95,35 @@ class BigQuery(BaseQueryRunner):
             'properties': {
                 'projectId': {
                     'type': 'string',
-                    'title': 'Project ID'
+                    'title': zh.get('Project ID', 'Project ID')
                 },
                 'jsonKeyFile': {
                     "type": "string",
-                    'title': 'JSON Key File'
+                    'title': zh.get('JSON Key File', 'JSON Key File')
                 },
                 'totalMBytesProcessedLimit': {
                     "type": "number",
-                    'title': 'Scanned Data Limit (MB)'
+                    'title': zh.get('Scanned Data Limit (MB)', 'Scanned Data Limit (MB)')
                 },
                 'userDefinedFunctionResourceUri': {
                     "type": "string",
-                    'title': 'UDF Source URIs (i.e. gs://bucket/date_utils.js, gs://bucket/string_utils.js )'
+                    'title': zh.get('UDF Source URIs (i.e. gs://bucket/date_utils.js, gs://bucket/string_utils.js )', 'UDF Source URIs (i.e. gs://bucket/date_utils.js, gs://bucket/string_utils.js )')
                 },
                 'useStandardSql': {
                     "type": "boolean",
-                    'title': "Use Standard SQL (Beta)",
+                    'title': zh.get("Use Standard SQL (Beta)", 'Use Standard SQL (Beta)'),
                 },
                 'location': {
                     "type": "string",
-                    "title": "Processing Location",
+                    "title": zh.get("Processing Location", 'Processing Location'),
                 },
                 'loadSchema': {
                     "type": "boolean",
-                    "title": "Load Schema"
+                    "title": zh.get("Load Schema", 'Load Schema')
                 },
                 'maximumBillingTier': {
                     "type": "number",
-                    "title": "Maximum Billing Tier"
+                    "title": zh.get("Maximum Billing Tier", 'Maximum Billing Tier')
                 }
             },
             'required': ['jsonKeyFile', 'projectId'],

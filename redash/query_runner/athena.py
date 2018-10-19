@@ -4,6 +4,7 @@ import os
 from redash.query_runner import *
 from redash.settings import parse_boolean
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 ANNOTATE_QUERY = parse_boolean(os.environ.get('ATHENA_ANNOTATE_QUERY', 'true'))
@@ -55,28 +56,28 @@ class Athena(BaseQueryRunner):
             'properties': {
                 'region': {
                     'type': 'string',
-                    'title': 'AWS Region'
+                    'title': zh.get('AWS Region', 'AWS Region')
                 },
                 'aws_access_key': {
                     'type': 'string',
-                    'title': 'AWS Access Key'
+                    'title': zh.get('AWS Access Key', 'AWS Access Key')
                 },
                 'aws_secret_key': {
                     'type': 'string',
-                    'title': 'AWS Secret Key'
+                    'title': zh.get('AWS Secret Key', 'AWS Secret Key')
                 },
                 's3_staging_dir': {
                     'type': 'string',
-                    'title': 'S3 Staging (Query Results) Bucket Path'
+                    'title': zh.get('S3 Staging (Query Results) Bucket Path', 'S3 Staging (Query Results) Bucket Path')
                 },
                 'schema': {
                     'type': 'string',
-                    'title': 'Schema Name',
+                    'title': zh.get('Schema Name', 'Schema Name'),
                     'default': 'default'
                 },
                 'glue': {
                     'type': 'boolean',
-                    'title': 'Use Glue Data Catalog',
+                    'title': zh.get('Use Glue Data Catalog', 'Use Glue Data Catalog'),
                 },
             },
             'required': ['region', 's3_staging_dir'],

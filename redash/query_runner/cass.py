@@ -2,6 +2,7 @@ import logging
 
 from redash.query_runner import BaseQueryRunner, register
 from redash.utils import JSONEncoder, json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -35,31 +36,33 @@ class Cassandra(BaseQueryRunner):
             'properties': {
                 'host': {
                     'type': 'string',
+                    'title': zh.get('Host', 'Host')
                 },
                 'port': {
                     'type': 'number',
                     'default': 9042,
+                    'title': zh.get('Port', 'Port')
                 },
                 'keyspace': {
                     'type': 'string',
-                    'title': 'Keyspace name'
+                    'title': zh.get('Keyspace name', 'Keyspace name')
                 },
                 'username': {
                     'type': 'string',
-                    'title': 'Username'
+                    'title': zh.get('Username', 'Username')
                 },
                 'password': {
                     'type': 'string',
-                    'title': 'Password'
+                    'title': zh.get('Password', 'Password')
                 },
                 'protocol': {
                     'type': 'number',
-                    'title': 'Protocol Version',
+                    'title': zh.get('Protocol Version', 'Protocol Version'),
                     'default': 3
                 },
                 'timeout': {
                     'type': 'number',
-                    'title': 'Timeout',
+                    'title': zh.get('Timeout', 'Timeout'),
                     'default': 10
                 }
             },

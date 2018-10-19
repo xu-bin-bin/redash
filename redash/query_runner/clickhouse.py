@@ -5,6 +5,7 @@ import requests
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -19,18 +20,21 @@ class ClickHouse(BaseSQLQueryRunner):
             "properties": {
                 "url": {
                     "type": "string",
-                    "default": "http://127.0.0.1:8123"
+                    "default": "http://127.0.0.1:8123",
+                    'title': zh.get('URL', 'URL')
                 },
                 "user": {
                     "type": "string",
-                    "default": "default"
+                    "default": "default",
+                    'title': zh.get('User', 'User'),
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    'title': zh.get('Password', 'Password'),
                 },
                 "dbname": {
                     "type": "string",
-                    "title": "Database Name"
+                    "title": zh.get("Database Name", 'Database Name')
                 },
                 "timeout": {
                     "type": "number",
@@ -67,17 +71,10 @@ class ClickHouse(BaseSQLQueryRunner):
         return schema.values()
 
     def _send_query(self, data, stream=False):
-        r = requests.post(
-            self.configuration['url'],
-            data=data.encode("utf-8"),
-            stream=stream,
-            timeout=self.configuration.get('timeout', 30),
-            params={
-                'user': self.configuration['user'],
-                'password':  self.configuration['password'],
-                'database': self.configuration['dbname']
-            }
-        )
+        r = requests.post(self.configuration['url'], data=data.encode("utf-8"), stream=stream, params={
+            'user': self.configuration['user'], 'password':  self.configuration['password'],
+            'database': self.configuration['dbname']
+        })
         if r.status_code != 200:
             raise Exception(r.text)
         # logging.warning(r.json())
@@ -101,7 +98,7 @@ class ClickHouse(BaseSQLQueryRunner):
             return TYPE_STRING
 
     def _clickhouse_query(self, query):
-        query += '\nFORMAT JSON'
+        query += ' FORMAT JSON'
         result = self._send_query(query)
         columns = [{'name': r['name'], 'friendly_name': r['name'],
                     'type': self._define_column_type(r['type'])} for r in result['meta']]

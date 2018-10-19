@@ -8,7 +8,7 @@ from redash.utils import json_dumps, json_loads
 from redash import models
 from RestrictedPython import compile_restricted
 from RestrictedPython.Guards import safe_builtins
-
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -51,10 +51,11 @@ class Python(BaseQueryRunner):
             'properties': {
                 'allowedImportModules': {
                     'type': 'string',
-                    'title': 'Modules to import prior to running the script'
+                    'title': zh.get('Modules to import prior to running the script', 'Modules to import prior to running the script')
                 },
                 'additionalModulesPaths': {
-                    'type': 'string'
+                    'type': 'string',
+                    'title': zh.get('Additional module path', 'Additional module path')
                 }
             },
         }

@@ -7,6 +7,7 @@ from xlsxwriter.utility import xl_col_to_name
 
 from redash.query_runner import *
 from redash.utils import json_dumps, json_loads
+from redash.query_runner.i18n_dataSource import zh
 
 logger = logging.getLogger(__name__)
 
@@ -167,7 +168,7 @@ class GoogleSpreadsheet(BaseQueryRunner):
             'properties': {
                 'jsonKeyFile': {
                     "type": "string",
-                    'title': 'JSON Key File'
+                    'title': zh.get('JSON Key File', 'JSON Key File')
                 }
             },
             'required': ['jsonKeyFile'],
