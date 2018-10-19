@@ -221,7 +221,7 @@ DASHBOARD_REFRESH_INTERVALS = map(int, array_from_string(os.environ.get("REDASH_
 QUERY_REFRESH_INTERVALS = map(int, array_from_string(os.environ.get("REDASH_QUERY_REFRESH_INTERVALS", "60, 300, 600, 900, 1800, 3600, 7200, 10800, 14400, 18000, 21600, 25200, 28800, 32400, 36000, 39600, 43200, 86400, 604800, 1209600, 2592000")))
 
 # Features:
-VERSION_CHECK = parse_boolean(os.environ.get("REDASH_VERSION_CHECK", "true"))
+VERSION_CHECK = parse_boolean(os.environ.get("REDASH_VERSION_CHECK", "false"))
 FEATURE_DISABLE_REFRESH_QUERIES = parse_boolean(os.environ.get("REDASH_FEATURE_DISABLE_REFRESH_QUERIES", "false"))
 FEATURE_SHOW_QUERY_RESULTS_COUNT = parse_boolean(os.environ.get("REDASH_FEATURE_SHOW_QUERY_RESULTS_COUNT", "true"))
 FEATURE_SHOW_PERMISSIONS_CONTROL = parse_boolean(os.environ.get("REDASH_FEATURE_SHOW_PERMISSIONS_CONTROL", "false"))
