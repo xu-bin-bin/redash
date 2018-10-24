@@ -18,7 +18,7 @@ const basePath = fs.realpathSync(path.join(__dirname, "client"));
 const appPath = fs.realpathSync(path.join(__dirname, "client", "app"));
 
 const config = {
-  mode: "production",
+  mode: "development",
   entry: {
     app: ["./client/app/index.js", "./client/app/assets/less/main.less"],
     server: ["./client/app/assets/less/server.less"]
@@ -219,6 +219,7 @@ if (process.env.DEV_SERVER_HOST) {
 }
 
 if (process.env.NODE_ENV === "production") {
+  config.mode = "production";
   config.output.filename = "[name].[chunkhash].js";
   config.devtool = "source-map";
 }
