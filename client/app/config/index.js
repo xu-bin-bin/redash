@@ -83,12 +83,12 @@ function registerComponents() {
   const context = require.context('@/components', true, /^((?![\\/.]test[\\./]).)*\.jsx?$/);
   registerAll(context);
 }
-
+/**
 function registerExtensions() {
   const context = require.context('extensions', true, /^((?![\\/.]test[\\./]).)*\.jsx?$/);
   registerAll(context);
 }
-
+*/
 function registerServices() {
   const context = require.context('@/services', true, /^((?![\\/.]test[\\./]).)*\.js$/);
   registerAll(context);
@@ -149,7 +149,7 @@ markdownFilter(ngModule);
 dateTimeFilter(ngModule);
 registerComponents();
 registerPages();
-registerExtensions();
+// registerExtensions();
 registerVisualizations(ngModule);
 
 export default ngModule;
